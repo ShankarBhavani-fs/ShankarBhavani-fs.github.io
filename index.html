@@ -3,16 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shankar Bhavani's Portfolio</title>
+    <title>Bhavani Shankar's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        header {
             text-align: center;
-            margin-top: 20%;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        .links a {
+            margin-right: 15px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
+    <header>
+        <h1>Bhavani Shankar</h1>
+        <p>Email: <a href="mailto:shankar.bhavani.in@gmail.com">shankar.bhavani.in@gmail.com</a></p>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/shankar-bhavani" target="_blank">LinkedIn</a>
+            <p>Mobile: +1 872-899-2342</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="summary">
+            <h2>Summary</h2>
+            <p>Motivated computer science professional pursuing a Master's degree at the University of Illinois Chicago. Seeking an internship to leverage advanced technical skills and academic knowledge in a dynamic industry setting. Experienced in software development and optimization, with a strong foundation in relevant computer science concepts. Eager to apply theoretical concepts to real-world challenges and contribute to innovative projects.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <h3>Languages:</h3>
+            <ul>
+                <li>Java, Golang, C, Python, JavaScript, SQL, Angular, HTML5, CSS3</li>
+            </ul>
+            <h3>Technologies:</h3>
+            <ul>
+                <li>Azure DevOps, CI/CD, REST API, Docker, Scrum/Agile, Git, Jenkins, Postman, Mobaxterm, Unit testing, Snap testing.</li>
+            </ul>
+            <h3>Platforms:</h3>
+            <ul>
+                <li>Linux, Windows, WSL, IoT.</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>University of Illinois, Chicago</strong> - Master’s in Computer Science, College of Engineering (Aug. 2024 – Jun. 2026)</li>
+                <li><strong>Bangalore Institute of Technology</strong> - Bachelor of Engineering in Computer Science; GPA: 7.35 (Jun. 2016 – Jul. 2020)</li>
+            </ul>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <ul>
+                <li><strong>Bosch Global Software Technologies</strong> - Senior Software Engineer (Apr 2021 – Aug 2024)
+                    <ul>
+                        <li><strong>ctrlX Automation:</strong> Developed and deployed task manager services for a Linux-based OS using Angular and Golang, improving system efficiency by 20% and reducing task processing time by 15%. Streamlined CI/CD using Jenkins and Azure Pipelines.</li>
+                        <li>Enhanced and optimized REST APIs, leading to a 25% increase in communication speed between services, while maintaining a 100% uptime across deployments.</li>
+                        <li>Implemented key changes to the Software Development Kit (SDK), which resulted in a reduction of development time for new apps and streamlined the signing and release process, improving onboarding frequency of apps.</li>
+                        <li>Led backend optimization efforts by refining snap files and Linux kernel configurations, increasing overall system performance by 4 seconds and reliability through rigorous Go and programming practices.</li>
+                        <li><strong>ctrlX App Validation Framework:</strong> Designed and implemented a sustainable framework architecture, reducing manual app validation time from 4 days to 5 hours (92% reduction). Applied core software principles and advanced Go concepts (goroutines, channels, interfaces) to develop a high-performance application.</li>
+                        <li>Developed and optimized REST API endpoints using Golang for efficient data handling. Created a user-friendly UI page with Angular and used SQLite3 for managing ports and sockets information crucial to the validation process.</li>
+                        <li>Built applications for both Windows (using Electron and Electron-packager) and Linux (creating Snap packages), ensuring scalability and maintainability through best software engineering practices.</li>
+                        <li>Managed version control with Git and code storage with ADS Repo. Conducted API testing with Postman, automated builds with the Azure CI/CD pipeline, and performed manual app testing to adhere to ctrlX guidelines.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects & Certificates</h2>
+            <ul>
+                <li>Accident Prediction System (Machine Learning): Published in IRJET.</li>
+                <li>Movie Theatre Management: Developed with C# and MySQL.</li>
+                <li>Certifications: Go, Azure DevOps, JavaScript, Git, Jenkins, REST APIs, Docker.</li>
+            </ul>
+        </section>
+    </div>
 </body>
 </html>
