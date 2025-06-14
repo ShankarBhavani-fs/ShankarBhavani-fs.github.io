@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import Header from "./Components/Header";
 import Summary from "./Components/Summary";
-import Skills from "./Components/Skills";
-import Education from "./Components/Education";
-import Experience from "./Components/Experience";
-import Projects from "./Components/Projects";
+// import Skills from "./Components/Skills";
+// import Education from "./Components/Education";
+// import Experience from "./Components/Experience";
+// import Projects from "./Components/Projects";
 import Footer from "./Components/Footer";
 import UnderConstruction from "./Components/UnderConstruction";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Container } from "react-bootstrap";
+// import { Container } from "react-bootstrap";
 import "./App.css"; // Ensure App.css exists
 
 const App: React.FC = () => {
