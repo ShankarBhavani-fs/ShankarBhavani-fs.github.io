@@ -9,7 +9,7 @@ const UnderConstruction: React.FC = () => {
       data-aos="zoom-in"
     >
       <h2>🚧 Portfolio Under Construction 🚧</h2>
-      <p>We're working hard to bring you the full experience. Stay tuned!</p>
+      <p>Experiencing conflicts between design and animation, wait for the best experience!</p>
       <img
         src="https://media.giphy.com/media/vR1dPIYzQmkRzLZk2w/giphy.gif"
         alt="Under Construction"
