@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import Header from "./Components/Header";
 import Summary from "./Components/Summary";
-// import Skills from "./Components/Skills";
-// import Education from "./Components/Education";
-// import Experience from "./Components/Experience";
-// import Projects from "./Components/Projects";
+import Skills from "./Components/Skills";
+import Education from "./Components/Education";
+import Experience from "./Components/Experience";
+import Projects from "./Components/Projects";
+import Achievements from "./Components/Achievements";
 import Footer from "./Components/Footer";
 import UnderConstruction from "./Components/UnderConstruction";
 import AOS from "aos";
@@ -22,6 +23,11 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Summary />
+        <Skills />
+        <Education />
+        <Experience />
+        <Projects />
+        <Achievements />
         <UnderConstruction />
       </main>
       <Footer />

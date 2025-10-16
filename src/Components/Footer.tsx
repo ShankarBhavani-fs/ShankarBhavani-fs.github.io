@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <footer
       style={{
-        backgroundColor: "#2a2d34",
+        backgroundColor: "#000000",
         color: "white",
         padding: "20px 0",
         textAlign: "center",
@@ -16,14 +16,14 @@ const Footer: React.FC = () => {
         <a
           href="https://www.linkedin.com/in/shankar-bhavani"
           target="_blank"
-          style={{ color: "#ff5252" }}
+          style={{ color: "#ff8c42", textDecoration: "none" }}
         >
           LinkedIn
         </a>{" "}
         | Email:{" "}
         <a
           href="mailto:shankar.bhavani.in@gmail.com"
-          style={{ color: "#ff5252" }}
+          style={{ color: "#ff8c42", textDecoration: "none" }}
         >
           shankar.bhavani.in@gmail.com
         </a>
