@@ -30,6 +30,48 @@
   position: relative;
 }
 
+/* === Profile Section === */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-image-wrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 140, 66, 0.5);
+  box-shadow: 0 4px 20px rgba(255, 140, 66, 0.3);
+  transition: all 0.3s ease;
+}
+
+.profile-image-wrapper:hover {
+  border-color: rgba(255, 140, 66, 0.8);
+  box-shadow: 0 6px 25px rgba(255, 140, 66, 0.4);
+  transform: scale(1.05);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.1);
+}
+
+/* When header is scrolled, make profile image smaller */
+.professional-header.scrolled .profile-image-wrapper {
+  width: 50px;
+  height: 50px;
+}
+
 /* === Brand Section === */
 .brand-section {
   display: flex;
@@ -344,6 +386,21 @@
   
   .professional-header.scrolled {
     padding: 8px 0;
+  }
+  
+  .profile-section {
+    gap: 10px;
+  }
+  
+  .profile-image-wrapper {
+    width: 45px;
+    height: 45px;
+    border-width: 2px;
+  }
+  
+  .professional-header.scrolled .profile-image-wrapper {
+    width: 40px;
+    height: 40px;
   }
   
   .nav-container {

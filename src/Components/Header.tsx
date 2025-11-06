@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { 
   FaLinkedin, 
   FaGithub, 
@@ -11,6 +11,7 @@ import {
   FaTimes,
   FaEnvelope
 } from "react-icons/fa";
+import profileImage from "../assets/bhav-hs-m.jpeg";
 import "./Header.css";
 
 interface NavItem {
@@ -25,13 +26,13 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('summary');
 
-  const navigationItems: NavItem[] = [
+  const navigationItems: NavItem[] = useMemo(() => [
     { id: 'summary', label: 'About', icon: FaUser, href: '#summary' },
     { id: 'skills', label: 'Skills', icon: FaCogs, href: '#skills' },
     { id: 'education', label: 'Education', icon: FaGraduationCap, href: '#education' },
     { id: 'experience', label: 'Experience', icon: FaBriefcase, href: '#experience' },
     { id: 'projects', label: 'Projects', icon: FaProjectDiagram, href: '#projects' }
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,13 +67,22 @@ const Header: React.FC = () => {
   return (
     <header className={`professional-header ${scrolled ? 'scrolled' : ''}`}>
       <nav className="nav-container">
-        {/* Logo/Brand */}
-        <div className="brand-section">
-          <div className="brand-name">
-            <span className="first-name">Bhavani</span>
-            <span className="last-name">Shankar</span>
+        {/* Profile Section */}
+        <div className="profile-section">
+          <div className="profile-image-wrapper">
+            <img 
+              src={profileImage} 
+              alt="Bhavani Shankar" 
+              className="profile-image"
+            />
           </div>
-          <div className="brand-title">AI Software Engineer</div>
+          <div className="brand-section">
+            <div className="brand-name">
+              <span className="first-name">Bhavani</span>
+              <span className="last-name">Shankar</span>
+            </div>
+            <div className="brand-title">AI Software Engineer</div>
+          </div>
         </div>
 
         {/* Desktop Navigation */}

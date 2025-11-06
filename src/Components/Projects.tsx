@@ -36,39 +36,23 @@ const Projects: React.FC = () => {
     },
     {
       id: 3,
-      name: "Go Programming",
-      image: "🔷",
-      skills: ["Go", "Concurrency", "REST APIs", "Microservices"],
-      description: "Advanced Go programming certification covering goroutines, channels, and building scalable web services.",
-      liveLink: "https://coursera.org/verify/certificate-id",
-      type: "certification"
+      name: "Portfolio Website",
+      image: "🌐",
+      skills: ["React", "TypeScript", "Vite", "CSS3"],
+      description: "Modern portfolio website built with React and TypeScript, featuring responsive design, animations, and professional showcase sections.",
+      githubLink: "https://github.com/yourusername/portfolio",
+      liveLink: "https://your-portfolio.com",
+      type: "project"
     },
     {
       id: 4,
-      name: "Azure DevOps",
-      image: "☁️",
-      skills: ["Azure", "CI/CD", "Pipelines", "Cloud Architecture"],
-      description: "Microsoft Azure DevOps certification focusing on continuous integration, deployment pipelines, and cloud infrastructure.",
-      liveLink: "https://learn.microsoft.com/verify/certificate-id",
-      type: "certification"
-    },
-    {
-      id: 5,
-      name: "Full-Stack Development",
-      image: "💻",
-      skills: ["JavaScript", "React", "Node.js", "MongoDB"],
-      description: "Comprehensive full-stack development certification covering modern web technologies and best practices.",
-      liveLink: "https://certificate-link.com",
-      type: "certification"
-    },
-    {
-      id: 6,
-      name: "DevOps Mastery",
-      image: "⚙️",
-      skills: ["Docker", "Jenkins", "Git", "REST APIs"],
-      description: "Advanced DevOps practices including containerization, automation, version control, and API development.",
-      liveLink: "https://certificate-link.com",
-      type: "certification"
+      name: "E-Commerce Platform",
+      image: "�",
+      skills: ["Node.js", "Express", "MongoDB", "Stripe API"],
+      description: "Full-stack e-commerce platform with payment integration, inventory management, and admin dashboard.",
+      githubLink: "https://github.com/yourusername/ecommerce",
+      liveLink: "https://ecommerce-demo.com",
+      type: "project"
     }
   ];
 
@@ -76,14 +60,14 @@ const Projects: React.FC = () => {
     <section className="projects-section" data-aos="fade-up">
       <div className="container">
         <div className="projects-header">
-          <h2 className="projects-title">Projects & Certifications</h2>
+          <h2 className="projects-title">Featured Projects</h2>
           <p className="projects-subtitle">
-            Explore my technical projects and professional certifications
+            Explore my technical projects and development work
           </p>
         </div>
         
         <div className="projects-grid">
-          {projectsData.map((project) => (
+          {projectsData.filter(project => project.type === "project").map((project) => (
             <div key={project.id} className="flip-card" data-aos="zoom-in" data-aos-delay={project.id * 100}>
               <div className="flip-card-inner">
                 {/* Front Side */}
