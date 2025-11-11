@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { 
   FaGraduationCap, 
   FaUniversity, 
-  FaCalendarAlt, 
-  FaMedal,
   FaBookOpen,
-  FaAward,
-  FaMapMarkerAlt
+  FaAward
 } from "react-icons/fa";
 
 import "./Education.css";
@@ -26,46 +23,44 @@ interface EducationItem {
 }
 
 const Education: React.FC = () => {
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const [selectedEducation, setSelectedEducation] = useState<EducationItem | null>(null);
 
-  const educationData: EducationItem[] = [
+  const educationDataRaw: EducationItem[] = [
     {
       id: 1,
       institution: "University of Illinois, Chicago",
       degree: "Master of Science",
       field: "Computer Science",
-      duration: "Aug 2024 – Jun 2026",
+      duration: "Aug 2024 - Jun 2026",
       location: "Chicago, IL",
-      gpa: "4.0/4.0",
+      gpa: "3.5/4.0",
       status: "current",
       logo: FaUniversity,
       achievements: [
         "Graduate Research Assistant",
-        "Dean's List Recognition",
-        "AI/ML Specialization Track"
+        "AI software Track"
       ],
       coursework: [
-        "Advanced Machine Learning",
         "Artificial Intelligence",
         "Software Engineering",
         "Database Systems",
-        "Computer Networks"
+        "Information Retrieval",
+        "web development and cloud computing"
       ]
     },
     {
       id: 2,
       institution: "Bangalore Institute of Technology",
       degree: "Bachelor of Engineering",
-      field: "Computer Science & Engineering",
-      duration: "Jun 2016 – Jul 2020",
+      field: "Computer Science",
+      duration: "Jun 2016 - Jul 2020",
       location: "Bangalore, India",
-      gpa: "8.5/10.0",
+      gpa: "8/10.0",
       status: "completed",
       logo: FaBookOpen,
       achievements: [
-        "First Class with Distinction",
-        "Department Topper",
-        "Best Final Year Project Award"
+        "Cultural event organizer",
+        "Journal publication for Accident prediction using ML"
       ],
       coursework: [
         "Data Structures & Algorithms",
@@ -74,27 +69,56 @@ const Education: React.FC = () => {
         "Web Technologies",
         "Operating Systems"
       ]
+    },
+    {
+      id: 3,
+      institution: "JNVH, Karnataka",
+      degree: "Pre-University",
+      field: "Science & Mathematics",
+      duration: "Jun 2014 - May 2016",
+      location: "Karnataka, India",
+      status: "completed",
+      logo: FaGraduationCap,
+      achievements: [
+        "Science club member",
+        "Math Olympiad participant"
+      ],
+      coursework: [
+        "Physics",
+        "Mathematics"
+      ]
     }
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            setVisibleItems(prev => [...prev, index]);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  // Oldest -> Newest
+  const educationData = [...educationDataRaw].reverse();
 
-    const educationElements = document.querySelectorAll('.education-item');
-    educationElements.forEach((el) => observer.observe(el));
+  const handleEducationClick = (edu: EducationItem) => {
+    setSelectedEducation(edu);
+  };
 
-    return () => observer.disconnect();
+  const closeModal = useCallback(() => {
+    setSelectedEducation(null);
   }, []);
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedEducation) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [selectedEducation]);
+
+  // Close on ESC
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [closeModal]);
 
   return (
     <section id="education" className="education-section" data-aos="fade-up">
@@ -105,97 +129,112 @@ const Education: React.FC = () => {
           <div className="section-subtitle">Academic Journey & Achievements</div>
         </div>
 
-        <div className="education-timeline">
-          {educationData.map((edu, index) => {
-            const LogoIcon = edu.logo;
-            const isVisible = visibleItems.includes(index);
-            
+        <div className="education-timeline-years">
+          {educationData.map((edu) => {
+            const InstitutionLogo = edu.logo;
+            const isCurrent = edu.status === "current";
+
             return (
               <div
                 key={edu.id}
-                className={`education-item ${isVisible ? 'animate' : ''} ${edu.status}`}
-                data-index={index}
-                style={{
-                  animationDelay: `${index * 0.3}s`
-                }}
+                className={`year-item ${isCurrent ? "current" : ""}`}
+                onClick={() => handleEducationClick(edu)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleEducationClick(edu)}
               >
-                <div className="education-card">
-                  <div className="education-header">
-                    <div className="institution-logo">
-                      <LogoIcon className="logo-icon" />
-                    </div>
-                    <div className="institution-info">
-                      <h3 className="institution-name">{edu.institution}</h3>
-                      <div className="degree-info">
-                        <span className="degree">{edu.degree}</span>
-                        <span className="field">in {edu.field}</span>
-                      </div>
-                      <div className="education-meta">
-                        <div className="duration">
-                          <FaCalendarAlt className="meta-icon" />
-                          {edu.duration}
-                        </div>
-                        <div className="location">
-                          <FaMapMarkerAlt className="meta-icon" />
-                          {edu.location}
-                        </div>
-                        {edu.gpa && (
-                          <div className="gpa">
-                            <FaMedal className="meta-icon" />
-                            GPA: {edu.gpa}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    {edu.status === 'current' && (
-                      <div className="current-badge">
-                        <span>Current</span>
-                      </div>
-                    )}
+                <div className="year-marker">
+                  <div className="year-dot">
+                    <InstitutionLogo className="year-icon" />
                   </div>
-
-                  <div className="education-details">
-                    {edu.achievements && (
-                      <div className="achievements">
-                        <h4 className="detail-title">
-                          <FaAward className="detail-icon" />
-                          Achievements
-                        </h4>
-                        <ul className="achievement-list">
-                          {edu.achievements.map((achievement, idx) => (
-                            <li key={idx} className="achievement-item">
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {edu.coursework && (
-                      <div className="coursework">
-                        <h4 className="detail-title">
-                          <FaBookOpen className="detail-icon" />
-                          Key Coursework
-                        </h4>
-                        <div className="coursework-tags">
-                          {edu.coursework.map((course, idx) => (
-                            <span key={idx} className="course-tag">
-                              {course}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  <div className="year-connector" />
                 </div>
-                
-                {index < educationData.length - 1 && (
-                  <div className="timeline-connector"></div>
-                )}
+
+                <div className="year-info-compact">
+                  <div className="company-position-box">
+                    <div className="company-name">{edu.institution}</div>
+                    <div className="position-name">{edu.degree} in {edu.field}</div>
+                  </div>
+                  {isCurrent && <div className="current-indicator">●</div>}
+                </div>
               </div>
             );
           })}
         </div>
+
+        {selectedEducation && (
+          <div
+            className="education-modal-overlay"
+            onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${selectedEducation.institution} – ${selectedEducation.degree}`}
+          >
+            <div className="education-modal" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={closeModal} aria-label="Close">
+                ×
+              </button>
+
+              <div className="modal-header">
+                <div className="modal-logo">
+                  {(() => {
+                    const Logo = selectedEducation.logo;
+                    return <Logo className="modal-logo-icon" />;
+                  })()}
+                </div>
+                <div className="modal-company-info">
+                  <h2 className="modal-company">{selectedEducation.institution}</h2>
+                  <div className="modal-position">{selectedEducation.degree}</div>
+                  <div className="modal-meta">
+                    <span className="modal-duration">{selectedEducation.duration}</span>
+                    <span className="modal-location">{selectedEducation.location}</span>
+                    {selectedEducation.gpa && (
+                      <span className="modal-type gpa">
+                        GPA: {selectedEducation.gpa}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="modal-description">
+                <h3>Program Details</h3>
+                <p>{selectedEducation.degree} in {selectedEducation.field}</p>
+              </div>
+
+              {selectedEducation.achievements && selectedEducation.achievements.length > 0 && (
+                <div className="modal-achievements">
+                  <h3>Achievements & Recognition</h3>
+                  <div className="modal-achievements-grid">
+                    {selectedEducation.achievements.map((achievement, idx) => (
+                      <div key={idx} className="modal-achievement-card">
+                        <div className="modal-achievement-icon">
+                          <FaAward className="modal-achievement-icon-svg" />
+                        </div>
+                        <div className="modal-achievement-content">
+                          <p className="modal-achievement-description">{achievement}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {selectedEducation.coursework && selectedEducation.coursework.length > 0 && (
+                <div className="modal-technologies">
+                  <h3>Key Coursework</h3>
+                  <div className="modal-tech-grid">
+                    {selectedEducation.coursework.map((course, idx) => (
+                      <span key={idx} className="modal-tech-tag">
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

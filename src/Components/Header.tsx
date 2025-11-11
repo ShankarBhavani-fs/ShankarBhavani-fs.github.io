@@ -9,7 +9,10 @@ import {
   FaProjectDiagram,
   FaBars,
   FaTimes,
-  FaEnvelope
+  FaEnvelope,
+  FaMedium,
+  FaHandshake,
+  FaTrophy
 } from "react-icons/fa";
 import profileImage from "../assets/bhav-hs-m.jpeg";
 import "./Header.css";
@@ -31,7 +34,8 @@ const Header: React.FC = () => {
     { id: 'skills', label: 'Skills', icon: FaCogs, href: '#skills' },
     { id: 'education', label: 'Education', icon: FaGraduationCap, href: '#education' },
     { id: 'experience', label: 'Experience', icon: FaBriefcase, href: '#experience' },
-    { id: 'projects', label: 'Projects', icon: FaProjectDiagram, href: '#projects' }
+    { id: 'projects', label: 'Projects', icon: FaProjectDiagram, href: '#projects' },
+    { id: 'achievements', label: 'Achievements', icon: FaTrophy, href: '#achievements' }
   ], []);
 
   useEffect(() => {
@@ -129,6 +133,24 @@ const Header: React.FC = () => {
               aria-label="GitHub Profile"
             >
               <FaGithub />
+            </a>
+            <a
+              href="https://medium.com/@your-medium-handle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link medium"
+              aria-label="Medium Blog"
+            >
+              <FaMedium />
+            </a>
+            <a
+              href="https://uic.joinhandshake.com/profiles/shankar-bhavani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link handshake"
+              aria-label="Handshake Profile"
+            >
+              <FaHandshake />
             </a>
             <a
               href="mailto:your.email@example.com"

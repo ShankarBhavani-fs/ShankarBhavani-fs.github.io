@@ -1,107 +1,60 @@
 import React from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaLaptopCode } from "react-icons/fa";
+import data from "../data/data.json";
 import "./Projects.css";
 
 interface Project {
-  id: number;
-  name: string;
-  image: string;
-  skills: string[];
+  id: string;
+  title: string;
+  emoji: string;
   description: string;
-  githubLink?: string;
-  liveLink?: string;
-  type: "project" | "certification";
+  technologies: string[];
+  link: string;
 }
 
 const Projects: React.FC = () => {
-  const projectsData: Project[] = [
-    {
-      id: 1,
-      name: "Accident Prediction System",
-      image: "🚗",
-      skills: ["Python", "Machine Learning", "TensorFlow", "Data Analysis"],
-      description: "ML-based system to predict vehicle accidents using traffic data and weather conditions. Published in IRJET journal with 94% accuracy rate.",
-      githubLink: "https://github.com/yourusername/accident-prediction",
-      liveLink: "https://accident-predictor.netlify.app",
-      type: "project"
-    },
-    {
-      id: 2,
-      name: "Movie Theatre Management",
-      image: "🎬",
-      skills: ["C#", "MySQL", ".NET", "Windows Forms"],
-      description: "Complete theatre management system with booking, scheduling, and payment processing. Handles 1000+ concurrent users efficiently.",
-      githubLink: "https://github.com/yourusername/theatre-management",
-      type: "project"
-    },
-    {
-      id: 3,
-      name: "Portfolio Website",
-      image: "🌐",
-      skills: ["React", "TypeScript", "Vite", "CSS3"],
-      description: "Modern portfolio website built with React and TypeScript, featuring responsive design, animations, and professional showcase sections.",
-      githubLink: "https://github.com/yourusername/portfolio",
-      liveLink: "https://your-portfolio.com",
-      type: "project"
-    },
-    {
-      id: 4,
-      name: "E-Commerce Platform",
-      image: "�",
-      skills: ["Node.js", "Express", "MongoDB", "Stripe API"],
-      description: "Full-stack e-commerce platform with payment integration, inventory management, and admin dashboard.",
-      githubLink: "https://github.com/yourusername/ecommerce",
-      liveLink: "https://ecommerce-demo.com",
-      type: "project"
-    }
-  ];
+  const projects: Project[] = data.projects;
 
   return (
-    <section className="projects-section" data-aos="fade-up">
+    <section id="projects" className="projects-section" data-aos="fade-up">
       <div className="container">
-        <div className="projects-header">
-          <h2 className="projects-title">Featured Projects</h2>
-          <p className="projects-subtitle">
-            Explore my technical projects and development work
-          </p>
+        <div className="section-header">
+          <FaLaptopCode className="section-icon" />
+          <h2 className="section-title">Projects</h2>
+          <div className="section-subtitle">Technical Projects & Development Work</div>
         </div>
         
         <div className="projects-grid">
-          {projectsData.filter(project => project.type === "project").map((project) => (
-            <div key={project.id} className="flip-card" data-aos="zoom-in" data-aos-delay={project.id * 100}>
+          {projects.map((project, index) => (
+            <div key={project.id} className="flip-card" data-aos="zoom-in" data-aos-delay={index * 100}>
               <div className="flip-card-inner">
                 {/* Front Side */}
                 <div className="flip-card-front">
                   <div className="project-image">
-                    {project.image}
+                    {project.emoji}
                   </div>
-                  <p className="title">{project.name}</p>
-                  <div className="project-skills">
-                    {project.skills.slice(0, 2).map((skill, index) => (
-                      <span key={index} className="skill-tag">{skill}</span>
+                  <p className="title">{project.title}</p>
+                  {/* <div className="project-skills">
+                    {project.technologies.slice(0, 2).map((tech, idx) => (
+                      <span key={idx} className="skill-tag">{tech}</span>
                     ))}
-                  </div>
+                  </div> */}
                   <p className="hover-text">Hover to explore</p>
                 </div>
                 
                 {/* Back Side */}
                 <div className="flip-card-back">
-                  <p className="title">{project.type === "project" ? "Project" : "Certification"}</p>
+                  <p className="title">Project Details</p>
                   <p className="description">{project.description}</p>
                   <div className="skills-list">
-                    {project.skills.map((skill, index) => (
-                      <span key={index} className="skill-badge">{skill}</span>
+                    {project.technologies.map((tech, idx) => (
+                      <span key={idx} className="skill-badge">{tech}</span>
                     ))}
                   </div>
                   <div className="project-links">
-                    {project.githubLink && (
-                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link">
-                        <FaGithub /> GitHub
-                      </a>
-                    )}
-                    {project.liveLink && (
-                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="project-link">
-                        <FaExternalLinkAlt /> {project.type === "project" ? "Live Demo" : "View Certificate"}
+                    {project.link && project.link !== "#" && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                        <FaExternalLinkAlt /> View Project
                       </a>
                     )}
                   </div>

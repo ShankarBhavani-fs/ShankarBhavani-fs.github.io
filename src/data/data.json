@@ -1,0 +1,406 @@
+{
+  "certificates": [
+    {
+      "course_title": "Working with Microservices in Go (Golang)",
+      "certificate_url": "ude.my/UC-e0c49e00-7519-4751-b399-411b2ba069f3",
+      "certificate_no": "UC-e0c49800-7519-4751-6399-411b2ba069f3",
+      "date_completed": "July 28, 2024",
+      "length": "11.5 total hours",
+      "instructors": "Trevor Sawler, Bhavani Shankar"
+    },
+    {
+      "course_title": "Fundamentals of Backend Engineering",
+      "certificate_url": "ude.my/UC-08c0ddc0-fc96-4dfd-899c-fb2d6727eadc",
+      "certificate_no": "UC-08c0ddc0-fc96-4dfd-899c-fb2d6727eadc",
+      "date_completed": "July 28, 2024",
+      "length": "17 total hours",
+      "instructors": "Hussein Nasser, Bhavani Shankar"
+    },
+    {
+      "course_title": "Web Development w/ Google's Go (golang) Programming Language",
+      "certificate_url": "ude.my/UC-d03602ca-3836-4655-8d28-dbc7f4ee9957",
+      "certificate_no": "UC-d03602ca-3836-4655-8d28-dbc7f4ee9957",
+      "date_completed": "July 21, 2024",
+      "length": "19 total hours",
+      "instructors": "Todd McLeod"
+    },
+    {
+      "course_title": "Backend Master Class [Golang + Postgres + Kubernetes + gRPC]",
+      "certificate_url": "ude.my/UC-41551391-acf1-40ee-9f96-b",
+      "certificate_no": "UC-41551391-acf1-40ee-9f96-bd4bed410bbe",
+      "date_completed": "July 28, 2024",
+      "length": "18.5 total hours",
+      "instructors": "TECH SCHOOL, Bhavani Shankar"
+    },
+    {
+      "course_title": "gRPC [Golang] Master Class: Build Modern API & Microservices",
+      "certificate_url": "ude.my/UC-9ed1b8cc-5c19-482e-abac-e15948bb0eb6",
+      "certificate_no": "UC-9ed1b8cc-5c19-482e-abac-e15948bb0eb6",
+      "date_completed": "July 28, 2024",
+      "length": "4 total hours",
+      "instructors": "Clément Jean, Bhavani Shankar"
+    },
+    {
+      "course_title": "Working with WebSockets in Go (Golang)",
+      "certificate_url": "ude.my/UC-fcdfec61-b0c5-41a8-aac0-26facd090f63",
+      "certificate_no": "UC-fcdfec61-b0c5-41a8-aac0-26facd090f63",
+      "date_completed": "July 23, 2024",
+      "length": "14 total hours",
+      "instructors": "Trevor Sawler, Bhavani Shankar"
+    },
+    {
+      "course_title": "Working with Concurrency in Go (Golang)",
+      "certificate_url": "ude.my/UC-444ec89a-8ba4-406d-b4a6-c2249dba4bd2",
+      "certificate_no": "UC-444ec89a-8ba4-406d-b4a6-c2249dba4bd2",
+      "date_completed": "July 22, 2024",
+      "length": "9.5 total hours",
+      "instructors": "Trevor Sawler, Bhavani Shankar"
+    },
+    {
+      "course_title": "Working with Design Patterns in Go (Golang)",
+      "certificate_url": "ude.my/UC-9d6a2fc1-9abc-4da1-948a-043f9200a442",
+      "certificate_no": "UC-9d6a2fc1-9abc-4da1-948a-043f9200a442",
+      "date_completed": "July 22, 2024",
+      "length": "10.5 total hours",
+      "instructors": "Trevor Sawler, Bhavani Shankar"
+    },
+    {
+      "course_title": "Design Patterns in Go",
+      "certificate_url": "ude.my/UC-a32270a4-8598-4fad-85f9-1b4a1a9b935a",
+      "certificate_no": "UC-a32270a4-8598-4fad-85f9-1b4a1a9b935a",
+      "date_completed": "July 23, 2024",
+      "length": "10 total hours",
+      "instructors": "Dmitri Nesteruk, Bhavani Shankar"
+    },
+    {
+      "course_title": "Clean Code",
+      "certificate_url": "ude.my/UC-389a7ce4-5d33-4fa4-a110-48c5a04ad987",
+      "certificate_no": "UC-389a7ce4-5d33-4fa4-a110-48c5a04ad987",
+      "date_completed": "July 25, 2024",
+      "length": "6.5 total hours",
+      "instructors": "Academind by Maximilian Schwarzmüller, Maximilian Schwarzmüller, Bhavani Shankar"
+    },
+    {
+      "course_title": "SOLID Principles: Introducing Software Architecture & Design",
+      "certificate_url": "ude.my/UC-f0814d0b-58f0-4c8c-b217-30768505e984",
+      "certificate_no": "UC-10814d0b-58f0-4c8c-b217-30768505e984",
+      "date_completed": "Dec. 29, 2023",
+      "length": "2 total hours",
+      "instructors": "Sujith George, Bhavani Shankar"
+    },
+    {
+      "course_title": "Advanced Javascript",
+      "certificate_url": "ude.my/UC-8c7b2534-8e71-48d4-9b64-8bc303d2807b",
+      "certificate_no": "UC-8c7b2534-8e71-48d4-9b64-8bc303d2807b",
+      "date_completed": "May 9, 2022",
+      "length": "6.5 total hours",
+      "instructors": "Asim Hussain, Bhavani Shankar, Bhavani Shankar"
+    },
+    {
+      "course_title": "JavaScript Basics for Beginners",
+      "certificate_url": "ude.my/UC-5ecec57d-5788-4892-932c-17d692977533",
+      "certificate_no": "UC-5ecec57d-5788-4892-932c-17d692977533",
+      "date_completed": "March 10, 2022",
+      "length": "6.5 total hours",
+      "instructors": "Mosh Hamedani, Bhavani Shankar"
+    },
+    {
+      "course_title": "The Complete Guide To Google Gemini (With Gemini Ultra!)",
+      "certificate_url": "ude.my/UC-b23a4644-8749-4a34-8d80-bdd9be52914f",
+      "certificate_no": "UC-b23a4644-8749-4a34-8d80-bdd9be52914f",
+      "date_completed": "July 28, 2024",
+      "length": "8.5 total hours",
+      "instructors": "Colt Steele, Bhavani Shankar"
+    },
+    {
+      "course_title": "ChatGPT and LangChain: The Complete Developer's Masterclass",
+      "certificate_url": "ude.my/UC-83921092-154b-45fd-9a75-2cff9fcfcfe9",
+      "certificate_no": "UC-83921092-f54b-45fd-9a75-2cff9fcfcfe9",
+      "date_completed": "July 27, 2024",
+      "length": "12 total hours",
+      "instructors": "Stephen Grider, Bhavani Shankar"
+    },
+    {
+      "course_title": "LlamaIndex: Train ChatGPT (& other LLMs) on Custom Data",
+      "certificate_url": "ude.my/UC-92a246f9-dc42-4772-8417-5f0b412f322b",
+      "certificate_no": "UC-92a246f9-dc42-4772-8417-5f0b412f322b",
+      "date_completed": "July 28, 2024",
+      "length": "5 total hours",
+      "instructors": "Jana Bergant, Bhavani Shankar"
+    },
+    {
+      "course_title": "Complete OpenAI API Course (Connect to ChatGPT API & More)",
+      "certificate_url": "ude.my/UC-0e95003a-a15f-4ed7-b327-ee2ca8454838",
+      "certificate_no": "UC-095003a-a15f-4ed7-b327-ee2ca8454838",
+      "date_completed": "July 28, 2024",
+      "length": "4 total hours",
+      "instructors": "Chris Haroun, Luka Anicin, Bhavani Shankar"
+    },
+    {
+      "course_title": "LLM Fine Tuning on OpenAI",
+      "certificate_url": "ude.my/UC-4f24f58b-4edd-43c0-b944-20e1f34c169d",
+      "certificate_no": "UC-4f24f58b-4edd-43c0-b944-20e1f34c169d",
+      "date_completed": "July 28, 2024",
+      "length": "2 total hours",
+      "instructors": "Jose Portilla, Pierian Training, Bhavani Shankar"
+    },
+    {
+      "course_title": "GitHub Copilot: Use AI to write code for you! (Copilot 2024)",
+      "certificate_url": "ude.my/UC-aabc8cf4-c12c-46a4-88cc-d9140547e5f4",
+      "certificate_no": "UC-aabc8cf4-c12c-46a4-88cc-d9f40547e5f4",
+      "date_completed": "June 23, 2024",
+      "length": "2 total hours",
+      "instructors": "Tom Phillips, WebDevEducation (Tom Phillips), Bhavani Shankar"
+    },
+    {
+      "course_title": "Generative AI - Risk and Cyber Security Masterclass 2024",
+      "certificate_url": "ude.my/UC-1c60f4c2-bc55-4a39-bcb1-d770d3f7b9f0",
+      "certificate_no": "UC-1c60f4c2-bc55-4a39-bcb1-d770d3f7b9f0",
+      "date_completed": "July 28, 2024",
+      "length": "2.5 total hours",
+      "instructors": "Taimur Ijlal | Award winning cybersecurity leader and instructor, Bhavani Shankar"
+    },
+    {
+      "course_title": "ChatGPT Security: Privacy risks & Data Protection basics",
+      "certificate_url": "ude.my/UC-dc541e31-7cf3-4e48-b5cf-d88b197099c5",
+      "certificate_no": "UC-dc541e31-7cf3-4e48-b5cf-d88b197099c5",
+      "date_completed": "July 28, 2024",
+      "length": "38 total mins",
+      "instructors": "Tristan Roth, Bhavani Shankar"
+    },
+    {
+      "course_title": "ChatGPT for Better Business Communication",
+      "certificate_url": "ude.my/UC-c2150761-5f5b-4841-836d-cd24a6341725",
+      "certificate_no": "UC-c2150761-5f5b-4841-836d-cd24a6341725",
+      "date_completed": "July 22, 2024",
+      "length": "1.5 total hours",
+      "instructors": "Hassan Osman, Bhavani Shankar"
+    },
+    {
+      "course_title": "ChatGPT for Business: Writing with a Generative AI Companion",
+      "certificate_url": "ude.my/UC-ca3b41e9-3b24-4640-9bd5-91b73a9443fa",
+      "certificate_no": "UC-ca3b41e9-3b24-4b40-9bd5-91b73a9443fa",
+      "date_completed": "July 22, 2024",
+      "length": "1.5 total hours",
+      "instructors": "Phil Ebiner, Video School, Bhavani Shankar"
+    },
+    {
+      "course_title": "Mastering the System Design Interview",
+      "certificate_url": "ude.my/UC-31d14ca7-68be-4a50-8f91-6cc3d851c1a3",
+      "certificate_no": "UC-31d14ca7-68be-4a50-8191-6cc3d851c1a3",
+      "date_completed": "July 29, 2024",
+      "length": "5 total hours",
+      "instructors": "Sundog Education by Frank Kane, Frank Kane, Sundog Education Team, Bhavani Shankar"
+    },
+    {
+      "course_title": "Microservices: Designing Highly Scalable Systems",
+      "certificate_url": "ude.my/UC-3bf0d42a-0869-4be3-a6a3-30dc321c45a0",
+      "certificate_no": "UC-3bf0d42a-0869-4be3-a6a3-30dc321c45a0",
+      "date_completed": "July 28, 2024",
+      "length": "1.5 total hours",
+      "instructors": "Sean Campbell, Bhavani Shankar"
+    },
+    {
+      "course_title": "OpenAPI: Beginner to Guru",
+      "certificate_url": "ude.my/UC-60bbca05-b431-4360-acdb-d143c9ccfae4",
+      "certificate_no": "UC-60bbca05-b431-4360-acdb-d143c9ccfae4",
+      "date_completed": "July 29, 2024",
+      "length": "5 total hours",
+      "instructors": "John Thompson, Spring Ahead Code Academy, Bhavani Shankar"
+    },
+    {
+      "course_title": "Learn Swagger and the OpenAPI Specification",
+      "certificate_url": "ude.my/UC-1adb30e7-6592-4702-b570-bcd709b2bb5f",
+      "certificate_no": "UC-1adb30e7-6592-4702-b570-bcd709b2bb5f",
+      "date_completed": "July 29, 2024",
+      "length": "1 total hour",
+      "instructors": "Peter Gruenbaum, Bhavani Shankar"
+    },
+    {
+      "course_title": "Google Cloud Platform (GCP) Fundamentals for Beginners",
+      "certificate_url": "ude.my/UC-842fa7b4-a387-4e45-b520-87ac2d8c4ca8",
+      "certificate_no": "UC-842fa7b4-a387-4e45-b520-87ac2d8c4ca8",
+      "date_completed": "July 28, 2024",
+      "length": "4 total hours",
+      "instructors": "Janakiram MSV, Bhavani Shankar"
+    },
+    {
+      "course_title": "AWS Essentials",
+      "certificate_url": "ude.my/UC-bae6bdb7-0ab8-401e-ad0e-673ea5439759",
+      "certificate_no": "UC-bae6bdb7-0ab8-401e-ad0e-673ea5439759",
+      "date_completed": "July 29, 2024",
+      "length": "3.5 total hours",
+      "instructors": "Amazon Web Services (AWS), Bhavani Shankar"
+    },
+    {
+      "course_title": "Azure Devops Crash Course - Build CI/CD release pipelines",
+      "certificate_url": "ude.my/UC-58145b06-1b03-4cd4-864d-c4af55badb10",
+      "certificate_no": "UC-58145606-1b03-4cd4-864d-c4af55badb10",
+      "date_completed": "Dec. 7, 2022",
+      "length": "7.5 total hours",
+      "instructors": "Rahul Shetty, Bhavani Shankar"
+    },
+    {
+      "course_title": "Azure DevOps Fundamentals for Beginners",
+      "certificate_url": "ude.my/UC-6b5ddb29-afd4-474d-8765-177e9d350b47",
+      "certificate_no": "UC-6b5ddb29-afd4-474d-8765-177e9d350b47",
+      "date_completed": "Feb. 13, 2022",
+      "length": "3.5 total hours",
+      "instructors": "Brian Culp, Bhavani Shankar"
+    },
+    {
+      "course_title": "Docker for the Absolute Beginner - Hands On - DevOps",
+      "certificate_url": "ude.my/UC-c674a00c-6660-4ac6-aa57-bdfea21d532b",
+      "certificate_no": "UC-c674a00c-e660-4ac6-aa57-bdfea21d532b",
+      "date_completed": "Aug. 14, 2023",
+      "length": "4.5 total hours",
+      "instructors": "Mumshad Mannambeth, Kode Kloud Training, Bhavani Shankar"
+    },
+    {
+      "course_title": "YAML Zero to Master",
+      "certificate_url": "ude.my/UC-d23e9da8-1905-4d21-8f1c-84a6652b8d45",
+      "certificate_no": "UC-d23e9da8-1905-4d21-8f1c-84a6652b8d45",
+      "date_completed": "Aug. 9, 2023",
+      "length": "3 total hours",
+      "instructors": "Eazy Bytes, Madan Reddy, Bhavani Shankar"
+    },
+    {
+      "course_title": "Test Case Management (Fundamentals & TestRail Demo)",
+      "certificate_url": "ude.my/UC-1d3d2398-2222-4e71-beab-ed405c4fe4bb",
+      "certificate_no": "UC-1d3d2398-2222-4e71-beab-ed405c4fe4bb",
+      "date_completed": "Aug. 10, 2023",
+      "length": "1 total hour",
+      "instructors": "Hiba EL Darwish, Bhavani Shankar"
+    },
+    {
+      "course_title": "Management Skills, Self Leadership & Personal Transformation",
+      "certificate_url": "ude.my/UC-25ca2dbf-48f7-442c-9966-0c954971fa2a",
+      "certificate_no": "UC-25ca2dbf-4817-442c-9966-0c954971fa2a",
+      "date_completed": "March 2, 2024",
+      "length": "1.5 total hours",
+      "instructors": "Petra Paitici, Bhavani Shankar"
+    },
+    {
+      "course_title": "Becoming a More Confident Leader",
+      "certificate_url": "ude.my/UC-ba51dfaf-b507-4f8b-9638-9d2ed6aa3340",
+      "certificate_no": "UC-ba51dfaf-b507-4f8b-9638-9d2ed6aa3340",
+      "date_completed": "Feb. 11, 2024",
+      "length": "38 total mins",
+      "instructors": "Dorie Clark, Bhavani Shankar"
+    },
+    {
+      "course_title": "Mindful Resilience for Work-Life Thriving",
+      "certificate_url": "ude.my/UC-9cfcf90d-fda1-4bce-87cb-e1a069d84e50",
+      "certificate_no": "UC-9cfcf90d-fda1-4bce-87cb-e1a069d84e50",
+      "date_completed": "June 2, 2024",
+      "length": "1 total hour",
+      "instructors": "Judith Young Comer, Bhavani Shankar"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "journal-publication",
+      "title": "Journal Publication - Accident Prediction using ML",
+      "description": "Published research work in a peer-reviewed academic journal focusing on Accident prediction using Machine Learning techniques",
+      "category": "Research & Publications",
+      "date": "2023",
+      "provider": "Academic Journal",
+      "type": "publication",
+      "link": "#"
+    },
+    {
+      "id": "pos-scholarship",
+      "title": "POS Scholarship Award",
+      "description": "Recipient of the prestigious POS Scholarship recognizing academic excellence and potential in computer science",
+      "category": "Academic Excellence",
+      "date": "2024",
+      "provider": "University of Illinois Chicago",
+      "type": "scholarship",
+      "link": "#"
+    },
+    {
+        "id":"Global Engagement",
+        "title":"Global Engagement",
+        "description":"Active participation in international culture and experience programs",
+        "category":"Cultural Exchange",
+        "date":"2025",
+        "provider":"University of Illinois Chicago",
+        "type":"engagement",
+        "link":"#"
+    }
+  ],
+  "projects": [
+    {
+      "id": "ai-chatbot",
+      "title": "AI-Powered Chatbot",
+      "emoji": "🤖",
+      "description": "Developed an AI-powered chatbot using natural language processing to assist users with inquiries and support.",
+      "technologies": ["Python", "TensorFlow", "NLTK","Google Collab"],
+      "link": "#"
+    },
+    {
+      "id": "ecommerce-platform",
+      "title": "Grocery Price Comparator",
+      "emoji": "🛒",
+      "description": "Created a web application that compares grocery prices across multiple stores to help users find the best deals.",
+      "technologies": ["React", "Python", "MongoDB","web-scraping"],
+      "link": "#"
+    },
+    {
+        "id": "PersonaRAG",
+        "title": "PersonaRAG",
+        "emoji": "🧠",
+        "description": "Developed a personal assistant leveraging AI to provide personalized responses and task automation.",
+        "technologies": ["Python", "GPT-4", "RAG","vue.js","VectorDB","FastAPI"],
+        "link": "https://github.com/ExperimenterX/PersonaRAG.git"
+    },
+    {
+        "id":"SyncAI",
+        "title":"SyncAI",
+        "emoji": "📚",
+        "description":"AI assistant designed to help students manage their academic and personal tasks by implementing with providers like Blackboard, piazza and Google Calendar.",
+        "technologies":["Python", "AWS","RAG", "Supabase", "Next.js"],
+        "link":"https://www.hisyncai.com/"
+    },
+    {
+        "id":"CoffeeHouse",
+        "title":"CoffeeHouse",
+        "emoji": "☕",
+        "description":"Developed a comprehensive coffee shop management system to streamline operations, including inventory, order processing, and customer management.",
+        "technologies":["PostgreSQL","Python","React","Railway", "Docker"],
+        "link":"https://coffe-house-web-app.vercel.app/"
+    },
+    {
+        "id":"vivid-shutter",
+        "title":"Vivid Shutter: Capturing Moments",
+        "emoji": "📸",
+        "description":"A application that showcase photography portfolio with features like image galleries, client proofing, and online booking system.",
+        "technologies":["React","Tailwind CSS","Vercel","TypeScript"],
+        "link":"https://vivid-shutter.vercel.app/"
+    },
+    {
+        "id":"Accident prediction system",
+        "title":"Accident Prediction System",
+        "emoji": "🚗",
+        "description":"Developed a machine learning application to predict the likelihood of accidents based on historical data and real-time inputs.",
+        "technologies":["Python","Scikit-learn","Pandas","Flask", "Tkinter"],
+        "link":"#"
+    },
+    {
+        "id":"Portfolio Website",
+        "title":"Portfolio Website",
+        "emoji": "🌐",
+        "description":"A personal portfolio website to showcase projects, skills, and achievements.",
+        "technologies":["React","CSS","Github Pages"],
+        "link":"https://shankarbhavani-fs.github.io"
+    },
+    {
+        "id":"Movie Theater management",
+        "title":"Movie Theater Management",
+        "emoji": "🎬",
+        "description":"A web application to manage movie theater operations, including ticket booking, movie selection and seat reservations.",
+        "technologies":["JavaScript","HTML","CSS","MySQL","PHP"],
+        "link":"#"
+    }
+  ]
+}

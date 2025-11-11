@@ -1,49 +1,60 @@
 /* === Skills Section === */
 .skills-section {
-  width: 100%;
-  max-width: 1400px;
-  margin: 80px auto;
-  padding: 80px 20px;
+  padding: 120px 40px 150px 40px;
+  background: linear-gradient(135deg, 
+    rgba(255, 250, 248, 0.9) 0%,
+    rgba(255, 248, 245, 0.8) 50%,
+    rgba(255, 245, 240, 0.9) 100%
+  );
   position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 .skills-section::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(255, 245, 240, 0.3) 0%,
-    rgba(255, 228, 214, 0.2) 25%,
-    rgba(255, 245, 240, 0.3) 50%,
-    rgba(255, 228, 214, 0.2) 75%,
-    rgba(255, 245, 240, 0.3) 100%
-  );
-  border-radius: 30px;
-  z-index: -1;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 140, 66, 0.03) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+  z-index: 1;
 }
 
-.skills-title {
+/* === Section Header === */
+.section-header {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #2c1810;
   margin-bottom: 60px;
   position: relative;
+  z-index: 2;
 }
 
-.skills-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #ff8c42, #d2691e);
-  border-radius: 2px;
+.section-icon {
+  font-size: 3rem;
+  color: #ff8c42;
+  margin-bottom: 20px;
+  display: block;
+  animation: bounce 2s infinite;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #2c1810;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #2c1810, #ff8c42);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #8b6f47;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 /* === Skills Grid === */
@@ -55,6 +66,12 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  align-items: stretch;
+
+  /* ✅ Prevent any scrollbars */
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
 }
 
 /* === Special layout for 7th card === */
@@ -102,6 +119,7 @@
   box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
 }
 
+/* === Skill Category Card === */
 .skills-category {
   background: rgba(255, 245, 240, 0.8);
   backdrop-filter: blur(15px);
@@ -112,6 +130,13 @@
   text-align: center;
   transition: all 0.3s ease;
   animation: slideInUp 0.6s ease-out;
+
+  /* ✅ Ensure it grows freely */
+  overflow: visible !important;
+  height: 100%;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
 }
 
 .skills-category:hover {
@@ -127,6 +152,7 @@
   border-color: rgba(255, 140, 66, 0.6);
 }
 
+/* === Category Title === */
 .category-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -147,11 +173,13 @@
 /* === Skills List === */
 .skills-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   gap: 15px;
   list-style: none;
   padding: 0;
   margin: 0;
+  flex: 1;
 }
 
 .skill-item {
@@ -162,10 +190,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
-  animation: fadeInScale 0.5s ease-out;
+  height: 100%;
+  min-height: 100px;
 }
 
 .skill-item:hover {
@@ -188,20 +218,11 @@
 }
 
 @keyframes rainbowColors {
-  0% { color: #4285f4; } /* Google Blue */
-  25% { color: #34a853; } /* Google Green */
-  50% { color: #fbbc05; } /* Google Yellow */
-  75% { color: #ea4335; } /* Google Red */
-  100% { color: #4285f4; } /* Back to Blue */
-}
-
-@keyframes rainbowShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0% { color: #4285f4; }
+  25% { color: #34a853; }
+  50% { color: #fbbc05; }
+  75% { color: #ea4335; }
+  100% { color: #4285f4; }
 }
 
 .skill-icon {
@@ -273,7 +294,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-  
+
   .skills-grid .skill-card-7 {
     grid-column: 1 / -1;
     justify-self: center;
@@ -287,41 +308,41 @@
     padding: 40px 15px;
     margin: 60px auto;
   }
-  
+
   .skills-title {
     font-size: 2rem;
     margin-bottom: 40px;
   }
-  
+
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .skills-grid .skill-card-7 {
     grid-column: 1;
     justify-self: center;
     max-width: 100%;
     margin-top: 20px;
   }
-  
+
   .skills-category {
     padding: 25px;
   }
-  
+
   .skills-list {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 12px;
   }
-  
+
   .skill-item {
     padding: 12px 8px;
   }
-  
+
   .skill-icon {
     font-size: 1.5rem;
   }
-  
+
   .skill-name {
     font-size: 0.8rem;
   }
@@ -331,12 +352,41 @@
   .skills-title {
     font-size: 1.8rem;
   }
-  
+
   .category-title {
     font-size: 1.3rem;
   }
-  
+
   .skills-list {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+/* === Ensure the whole grid grows; no internal scrollbars === */
+.skills-grid {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* Cards should expand to fit all skills */
+.skills-category {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* The list itself should never clip */
+.skills-list {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  grid-auto-rows: auto;
+}
+
+/* Helpful: prevent accidental equal-height stretching that can hide overflow */
+.skills-grid {
+  align-items: start !important;
+}
+.skills-category {
+  align-items: start !important;
 }

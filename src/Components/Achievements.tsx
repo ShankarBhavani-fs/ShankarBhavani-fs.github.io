@@ -1,129 +1,174 @@
 ﻿import React, { useState } from "react";
 import { 
   FaCertificate, 
-  FaShieldAlt, 
-  FaCode, 
-  FaGlobe, 
-  FaUsers, 
-  FaAward,
   FaExternalLinkAlt,
   FaTrophy,
-  FaStar,
-  FaMicrosoft,
-  FaCloud,
-  FaTools,
-  FaBrain
+  FaGlobe,
+  FaTimes,
+  FaBookOpen,
+  FaMedal,
+  FaBriefcase
 } from "react-icons/fa";
-import { SiUdemy, SiAmazon } from "react-icons/si";
+import certificatesData from "../data/data.json";
 import "./Achievements.css";
 
-interface Item {
-  id: number;
+interface Certificate {
+  course_title: string;
+  certificate_url: string;
+  certificate_no: string;
+  date_completed: string;
+  length: string;
+  instructors: string;
+}
+
+interface Achievement {
+  id: string;
   title: string;
-  type: "certificate" | "achievement";
-  icon: React.ComponentType<{ className?: string }>;
+  description: string;
+  category: string;
+  date: string;
   provider: string;
+  type: string;
   link?: string;
+}
+
+interface AchievementWithIcon extends Achievement {
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
 }
 
 const Achievements: React.FC = () => {
-  const [selectedType, setSelectedType] = useState<string>("all");
+  const [showCertificatesModal, setShowCertificatesModal] = useState<boolean>(false);
 
-  const items: Item[] = [
-    { id: 1, title: "Go Programming Specialization", type: "certificate", icon: FaCode, provider: "UC Irvine", link: "#", color: "#00D4FF" },
-    { id: 2, title: "Azure DevOps Engineer Expert", type: "certificate", icon: FaMicrosoft, provider: "Microsoft", link: "#", color: "#0078D4" },
-    { id: 3, title: "Python Developer Bootcamp", type: "certificate", icon: SiUdemy, provider: "Udemy", link: "#", color: "#A435F0" },
-    { id: 4, title: "AWS Solutions Architect", type: "certificate", icon: SiAmazon, provider: "Amazon", link: "#", color: "#FF9900" },
-    { id: 5, title: "Cybersecurity Fundamentals", type: "certificate", icon: FaShieldAlt, provider: "Google", link: "#", color: "#4285F4" },
-    { id: 6, title: "React Advanced Patterns", type: "certificate", icon: FaCode, provider: "Udemy", link: "#", color: "#A435F0" },
-    { id: 7, title: "Docker & Kubernetes", type: "certificate", icon: FaTools, provider: "Udemy", link: "#", color: "#A435F0" },
-    { id: 8, title: "Machine Learning Specialization", type: "certificate", icon: FaBrain, provider: "Stanford", link: "#", color: "#00D4FF" },
-    { id: 9, title: "Node.js Complete Guide", type: "certificate", icon: FaCode, provider: "Udemy", link: "#", color: "#A435F0" },
-    { id: 10, title: "Cloud Computing Basics", type: "certificate", icon: FaCloud, provider: "IBM", link: "#", color: "#1261FE" },
-    
-    { id: 11, title: "Research Excellence Award", type: "achievement", icon: FaTrophy, provider: "UIC Engineering", color: "#FFD700" },
-    { id: 12, title: "Global Student Ambassador", type: "achievement", icon: FaGlobe, provider: "UIC", color: "#10b981" },
-    { id: 13, title: "IEEE Outstanding Leader", type: "achievement", icon: FaUsers, provider: "IEEE", color: "#8b5cf6" },
-    { id: 14, title: "Hackathon Winner", type: "achievement", icon: FaAward, provider: "TechFest 2024", color: "#f59e0b" },
-    { id: 15, title: "Open Source Contributor", type: "achievement", icon: FaStar, provider: "GitHub", link: "#", color: "#24292f" },
-  ];
+  const certificates: Certificate[] = certificatesData.certificates;
+  const achievements: Achievement[] = certificatesData.achievements;
 
-  const filteredItems = selectedType === "all" 
-    ? items 
-    : items.filter(item => item.type === selectedType);
+  // Function to get icon and color based on achievement type/category
+  const getAchievementIcon = (achievement: Achievement): { icon: React.ComponentType<{ className?: string }>, color: string } => {
+    if (achievement.type === 'publication' || achievement.category.includes('Research')) {
+      return { icon: FaBookOpen, color: '#3b82f6' }; // Blue for research/publications
+    }
+    if (achievement.type === 'scholarship' || achievement.category.includes('Academic')) {
+      return { icon: FaMedal, color: '#f59e0b' }; // Gold for academic achievements
+    }
+    if (achievement.type === 'engagement' || achievement.category.includes('Cultural')) {
+      return { icon: FaGlobe, color: '#10b981' }; // Green for global/cultural
+    }
+    // Default fallback
+    return { icon: FaTrophy, color: '#8b5cf6' }; // Purple for general achievements
+  };
+
+  const achievementsWithIcons: AchievementWithIcon[] = achievements.map(achievement => {
+    const { icon, color } = getAchievementIcon(achievement);
+    return { ...achievement, icon, color };
+  });
+
+  const openCertificatesModal = () => {
+    setShowCertificatesModal(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeCertificatesModal = () => {
+    setShowCertificatesModal(false);
+    document.body.style.overflow = 'unset';
+  };
 
   return (
     <section className="achievements-section" data-aos="fade-up">
       <div className="container">
-        <div className="achievements-header">
-          <h2 className="achievements-title">Achievements & Certifications</h2>
-          <p className="achievements-subtitle">
-            Professional certifications and notable achievements
-          </p>
+        <div className="section-header">
+          <FaBriefcase className="section-icon" />
+          <h2 className="section-title">Certifications & Achievements</h2>
+          <div className="section-subtitle">Professional Growth & Recognition</div>
         </div>
 
-        <div className="type-filter">
-          <button
-            className={`filter-btn ${selectedType === "all" ? "active" : ""}`}
-            onClick={() => setSelectedType("all")}
-          >
-            <FaStar className="filter-icon" />
-            All ({items.length})
-          </button>
-          <button
-            className={`filter-btn ${selectedType === "certificate" ? "active" : ""}`}
-            onClick={() => setSelectedType("certificate")}
-          >
-            <FaCertificate className="filter-icon" />
-            Certificates ({items.filter(i => i.type === "certificate").length})
-          </button>
-          <button
-            className={`filter-btn ${selectedType === "achievement" ? "active" : ""}`}
-            onClick={() => setSelectedType("achievement")}
-          >
-            <FaAward className="filter-icon" />
-            Achievements ({items.filter(i => i.type === "achievement").length})
-          </button>
+        {/* Certifications Section */}
+        <div className="section-subsection">
+          <div className="subsection-header">
+            <FaCertificate className="subsection-icon" />
+            <h3>Certifications</h3>
+          </div>
+          
+          <div className="certificate-box" onClick={openCertificatesModal}>
+            <div className="certificate-box-content">
+              <FaCertificate className="certificate-blueprint-icon" />
+              <h4>Show All Certificates</h4>
+              {/* <p>{certificates.length} Certificates Available</p> */}
+              <span className="view-all-text">Click to view all →</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Achievements Section */}
+        <div className="section-subsection">
+          <div className="subsection-header">
+            <FaTrophy className="subsection-icon" />
+            <h3>Achievements</h3>
+          </div>
+          
+          <div className="achievements-grid">
+            {achievementsWithIcons.map((achievement, index) => {
+              const IconComponent = achievement.icon;
+              return (
+                <div 
+                  key={achievement.id} 
+                  className="achievement-card"
+                  data-aos="zoom-in" 
+                  data-aos-delay={index * 50}
+                  style={{ "--item-color": achievement.color } as React.CSSProperties}
+                >
+                  <div className="achievement-icon">
+                    <IconComponent />
+                  </div>
+                  <div className="achievement-info">
+                    <h4 className="achievement-title">{achievement.title}</h4>
+                    <p className="achievement-provider">{achievement.provider}</p>
+                  </div>
+                  {achievement.link && achievement.link !== "#" && (
+                    <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="achievement-link">
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="items-grid">
-          {filteredItems.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div 
-                key={item.id} 
-                className="item-card"
-                data-aos="zoom-in" 
-                data-aos-delay={index * 50}
-                style={{ "--item-color": item.color } as React.CSSProperties}
-              >
-                <div className="item-icon">
-                  <Icon />
-                </div>
-                <div className="item-content">
-                  <h3 className="item-title">{item.title}</h3>
-                  <p className="item-provider">{item.provider}</p>
-                </div>
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="item-link"
-                    aria-label={`View ${item.title} certificate`}
-                  >
-                    <FaExternalLinkAlt />
-                  </a>
-                )}
+        {/* Certificates Modal */}
+        {showCertificatesModal && (
+          <div className="modal-overlay" onClick={closeCertificatesModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <h3>All Certificates</h3>
+                <button 
+                  className="modal-close" 
+                  onClick={closeCertificatesModal}
+                  aria-label="Close modal"
+                >
+                  <FaTimes />
+                </button>
               </div>
-            );
-          })}
-        </div>
-
-        {filteredItems.length === 0 && (
-          <div className="no-results">
-            <p>No items found for the selected filter.</p>
+              
+              <div className="certificates-list">
+                {certificates.map((cert, index) => (
+                  <div key={index} className="certificate-item">
+                    <div className="certificate-item-content">
+                      <FaCertificate className="certificate-item-icon" />
+                      <h4 className="certificate-title">{cert.course_title}</h4>
+                    </div>
+                    <a 
+                      href={`https://${cert.certificate_url}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="certificate-link"
+                    >
+                      View Certificate <FaExternalLinkAlt />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
       </div>

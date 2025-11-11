@@ -15,7 +15,6 @@ import {
   FaAws,
   FaLinux,
   FaServer, 
-  FaRaspberryPi,
   FaUbuntu,
   FaRobot,
   FaBrain,
@@ -42,14 +41,9 @@ import {
   SiMysql,
   SiPostgresql,
   SiMongodb,
-  SiKubernetes,
-  SiTerraform,
   SiPostman,
   SiGo
 } from "react-icons/si";
-import { 
-  MdSettingsApplications
-} from "react-icons/md";
 import "./Skills.css";
 
 interface Skill {
@@ -97,11 +91,9 @@ const Skills: React.FC = () => {
       // Cloud & DevOps
       'Azure': '#0078d4',
       'AWS': '#ff9900',
-      'GCP': 'rainbow-google', // Use a custom class for GCP rainbow effect
+      'GCP': '#4285f4', // Google Blue
       'Docker': '#2496ed',
-      'Kubernetes': '#326ce5',
       'Azure DevOps': '#0078d4',
-      'Terraform': '#623ce4',
       
       // Database & Tools
       'MySQL': '#4479a1',
@@ -118,8 +110,6 @@ const Skills: React.FC = () => {
       'n8n Automation': '#ea4b71',
       'Ubuntu/Snap': '#e95420',
       'Linux': '#fcc624',
-      'IoT Development': '#00d4aa',
-      'Raspberry Pi': '#c51a4a',
       'VS Code': '#007acc',
       'Agile/Scrum': '#0052cc',
       
@@ -182,9 +172,7 @@ const Skills: React.FC = () => {
         { name: "AWS", icon: FaAws },
         { name: "GCP", icon: FaGoogle },
         { name: "Docker", icon: FaDocker },
-        { name: "Kubernetes", icon: SiKubernetes },
         { name: "Azure DevOps", icon: FaServer },
-        { name: "Terraform", icon: SiTerraform }
       ]
     },
     {
@@ -208,8 +196,6 @@ const Skills: React.FC = () => {
         { name: "n8n Automation", icon: FaCogs },
         { name: "Ubuntu/Snap", icon: FaUbuntu },
         { name: "Linux", icon: FaLinux },
-        { name: "IoT Development", icon: MdSettingsApplications },
-        { name: "Raspberry Pi", icon: FaRaspberryPi },
         { name: "VS Code", icon: FaCode },
         { name: "Agile/Scrum", icon: FaTasks }
       ]
@@ -249,7 +235,11 @@ const Skills: React.FC = () => {
 
   return (
     <section id="skills" className="skills-section" data-aos="fade-up">
-      <h2 className="skills-title">Skills & Expertise</h2>
+      <div className="section-header">
+        <FaCogs className="section-icon" />
+        <h2 className="section-title">Skills & Expertise</h2>
+        <div className="section-subtitle">Technical Skills & Professional Competencies</div>
+      </div>
       
       <div className="skills-grid">
         {skillsData.map((category, categoryIndex) => {
@@ -283,8 +273,8 @@ const Skills: React.FC = () => {
                       }}
                     >
                       <div 
-                        className={`skill-icon-wrapper ${getIconColor(skill.name) === 'rainbow-google' ? 'rainbow-google' : ''}`}
-                        style={{ color: getIconColor(skill.name) === 'rainbow-google' ? 'transparent' : getIconColor(skill.name) }}
+                        className="skill-icon-wrapper"
+                        style={{ color: getIconColor(skill.name) }}
                       >
                         <SkillIcon className="skill-icon" />
                       </div>
