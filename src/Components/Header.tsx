@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import { 
   FaLinkedin, 
   FaGithub, 
-  FaUser, 
   FaCogs, 
   FaGraduationCap, 
   FaBriefcase, 
@@ -12,9 +11,11 @@ import {
   FaEnvelope,
   FaMedium,
   FaHandshake,
-  FaTrophy
+  FaTrophy,
+  FaDownload
 } from "react-icons/fa";
 import profileImage from "../assets/bhav-hs-m.jpeg";
+import resumePDF from "../data/Bhavani_Shankar-2024-Grad.pdf";
 import "./Header.css";
 
 interface NavItem {
@@ -30,7 +31,6 @@ const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState('summary');
 
   const navigationItems: NavItem[] = useMemo(() => [
-    { id: 'summary', label: 'About', icon: FaUser, href: '#summary' },
     { id: 'skills', label: 'Skills', icon: FaCogs, href: '#skills' },
     { id: 'education', label: 'Education', icon: FaGraduationCap, href: '#education' },
     { id: 'experience', label: 'Experience', icon: FaBriefcase, href: '#experience' },
@@ -80,7 +80,14 @@ const Header: React.FC = () => {
               className="profile-image"
             />
           </div>
-          <div className="brand-section">
+          <div 
+            className="brand-section"
+            onClick={() => handleNavClick('#summary')}
+            style={{ cursor: 'pointer' }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleNavClick('#summary')}
+          >
             <div className="brand-name">
               <span className="first-name">Bhavani</span>
               <span className="last-name">Shankar</span>
@@ -153,13 +160,24 @@ const Header: React.FC = () => {
               <FaHandshake />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:shankar.bhavani.in@gmail.com"
               className="social-link email"
               aria-label="Send Email"
             >
               <FaEnvelope />
             </a>
           </div>
+          
+          {/* Download Resume Button */}
+          <a
+            href={resumePDF}
+            download="Bhavani_Shankar_Resume.pdf"
+            className="resume-download-btn"
+            aria-label="Download Resume"
+          >
+            <FaDownload />
+            <span>Resume</span>
+          </a>
           
           {/* Mobile Menu Toggle */}
           <button

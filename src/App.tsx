@@ -7,7 +7,6 @@ import Experience from "./Components/Experience";
 import Projects from "./Components/Projects";
 import Achievements from "./Components/Achievements";
 import Footer from "./Components/Footer";
-import UnderConstruction from "./Components/UnderConstruction";
 import AOS from "aos";
 import "aos/dist/aos.css";
 // import { Container } from "react-bootstrap";
@@ -28,7 +27,6 @@ const App: React.FC = () => {
         <Experience />
         <Projects />
         <Achievements />
-        <UnderConstruction />
       </main>
       <Footer />
     </div>

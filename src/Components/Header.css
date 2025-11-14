@@ -22,7 +22,6 @@
 
 .nav-container {
   max-width: 1400px;
-  margin: 0 auto;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -35,7 +34,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-right: 40px;
+  margin-right: 0px;
 }
 
 .profile-image-wrapper {
@@ -78,6 +77,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.brand-section:hover {
+  transform: translateY(-2px);
 }
 
 .brand-name {
@@ -187,7 +191,6 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-left: 20px;
 }
 
 /* === Social Links === */
@@ -230,8 +233,46 @@
 }
 
 .social-link.email:hover {
-  background: #ff8c42;
-  border-color: #ff8c42;
+  background: #ea9a9a;
+  border-color: #ff4242;
+}
+
+.social-link.medium:hover {
+  background: #00ab6c;
+  border-color: #00ab6c;
+}
+
+.social-link.handshake:hover {
+  background: #d8e062;
+  border-color: #d9e252;
+}
+
+/* === Resume Download Button === */
+.resume-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #ff8c42, #d2691e);
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(246, 244, 243, 0.5);
+  background: linear-gradient(135deg, #6ddf2c, #63bd1e);
+  color: #ffffff;
+}
+
+.resume-download-btn span {
+  letter-spacing: 0.5px;
 }
 
 /* === Mobile Menu Toggle === */
@@ -370,14 +411,16 @@
     justify-content: center;
   }
   
+  /* Hide social links on mobile */
   .social-links {
-    gap: 10px;
+    display: none;
   }
   
-  .social-link {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
+  /* Make resume button more compact on mobile */
+  .resume-download-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    gap: 5px;
   }
 }
 
@@ -418,11 +461,19 @@
   }
   
   .header-actions {
-    gap: 15px;
+    gap: 12px;
   }
   
+  /* Keep social links hidden on mobile */
   .social-links {
-    gap: 8px;
+    display: none;
+  }
+  
+  /* Further compact resume button for small screens */
+  .resume-download-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    gap: 4px;
   }
   
   .mobile-nav-list {

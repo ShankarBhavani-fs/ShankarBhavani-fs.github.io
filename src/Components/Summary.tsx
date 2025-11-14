@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import "./Summary.css"; // Ensure this CSS file exists
 
-const summaryText = ` Welcome to my portfolio! I am Bhavani Shankar, a passionate software developer with expertise in full-stack development, Responsible AI, cloud computing, and automation. This portfolio showcases my work, skills, and projects that highlight my commitment to innovation and performance optimization.`;
+const summaryText = ` Welcome to my portfolio! I am Bhavani Shankar, a passionate software developer with expertise in full-stack development, Responsible AI, cloud computing, and automation. This portfolio showcases my work, skills, and projects that highlight my commitment to innovation.`;
 
 const Summary: React.FC = () => {
   const [text, setText] = useState("Hover to start...");
@@ -26,7 +26,7 @@ const Summary: React.FC = () => {
       setText(""); // Clear the text before typing starts
       interval = setInterval(() => {
         if (index < summaryText.length) {
-          setText((prev) => prev + summaryText[index]);
+          setText(summaryText.substring(0, index + 1));
           index++;
         } else {
           clearInterval(interval);
@@ -34,7 +34,9 @@ const Summary: React.FC = () => {
       }, 30); // Faster typing speed
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [isTyping]);
 
   return (

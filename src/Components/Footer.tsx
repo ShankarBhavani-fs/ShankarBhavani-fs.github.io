@@ -1,33 +1,211 @@
 // src/components/Footer.tsx
-import React from "react";
+import React, { useState } from "react";
+import { 
+  FaLinkedin, 
+  FaGithub, 
+  FaMedium, 
+  FaHandshake, 
+  FaEnvelope,
+  FaPaperPlane,
+  FaTimes
+} from "react-icons/fa";
+import emailjs from '@emailjs/browser';
+import "./Footer.css";
 
 const Footer: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSending(true);
+    setStatusMessage('');
+
+    try {
+      // Replace with your EmailJS credentials
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Bhavani Shankar'
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
+      
+      setStatusMessage('Message sent successfully! I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setStatusMessage('');
+      }, 2000);
+    } catch (error) {
+      setStatusMessage('Failed to send message. Please try again or email directly.');
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
-    <footer
-      style={{
-        backgroundColor: "#000000",
-        color: "white",
-        padding: "20px 0",
-        textAlign: "center",
-      }}
-    >
-      <p>
-        Connect with me on{" "}
-        <a
-          href="https://www.linkedin.com/in/shankar-bhavani"
-          target="_blank"
-          style={{ color: "#ff8c42", textDecoration: "none" }}
-        >
-          LinkedIn
-        </a>{" "}
-        | Email:{" "}
-        <a
-          href="mailto:shankar.bhavani.in@gmail.com"
-          style={{ color: "#ff8c42", textDecoration: "none" }}
-        >
-          shankar.bhavani.in@gmail.com
-        </a>
-      </p>
+    <footer className="footer-container">
+      <div className="footer-content">
+        <div className="footer-section">
+          <h3 className="footer-title">Connect With Me</h3>
+          <div className="footer-social-links">
+            <a
+              href="https://www.linkedin.com/in/shankar-bhavani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link linkedin"
+              aria-label="LinkedIn Profile"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/ExperimenterX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link github"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://medium.com/@your-medium-handle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link medium"
+              aria-label="Medium Blog"
+            >
+              <FaMedium />
+            </a>
+            <a
+              href="https://uic.joinhandshake.com/profiles/shankar-bhavani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link handshake"
+              aria-label="Handshake Profile"
+            >
+              <FaHandshake />
+            </a>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="footer-social-link contact-btn"
+              aria-label="Contact Me"
+            >
+              <FaEnvelope />
+            </button>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p className="footer-text">
+            © {new Date().getFullYear()} Bhavani Shankar. All rights reserved.
+          </p>
+        </div>
+      </div>
+
+      {/* Contact Modal */}
+      {isModalOpen && (
+        <div className="contact-modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="modal-close-btn" 
+              onClick={() => setIsModalOpen(false)}
+              aria-label="Close"
+            >
+              <FaTimes />
+            </button>
+            
+            <h2 className="modal-title">Get In Touch</h2>
+            <p className="modal-subtitle">Let's discuss your project or opportunity</p>
+            
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              
+              <div className="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              
+              <div className="form-group">
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={5}
+                  className="form-textarea"
+                />
+              </div>
+              
+              {statusMessage && (
+                <div className={`status-message ${statusMessage.includes('success') ? 'success' : 'error'}`}>
+                  {statusMessage}
+                </div>
+              )}
+              
+              <button 
+                type="submit" 
+                disabled={isSending}
+                className="submit-btn"
+              >
+                <FaPaperPlane />
+                {isSending ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };
