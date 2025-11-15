@@ -145,7 +145,7 @@
 .flip-card {
   background-color: transparent;
   width: 100%;
-  height: 400px;
+  height: 420px;
   perspective: 1000px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -167,20 +167,15 @@
 .flip-card-back {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid rgba(255, 140, 66, 0.2);
   border-radius: 20px;
-  padding: 25px 20px;
-  overflow: hidden;
 }
 
+/* FRONT SIDE */
 .flip-card-front {
   background: linear-gradient(120deg,
     rgba(255, 248, 245, 0.9) 60%, 
@@ -189,40 +184,26 @@
     rgba(255, 140, 66, 0.1) 48%);
   color: #d2691e;
   backdrop-filter: blur(10px);
-}
-
-.flip-card-back {
-  background: linear-gradient(120deg,
-    rgba(255, 140, 66, 0.9) 30%, 
-    #d2691e 88%,
-    rgba(255, 248, 245, 0.3) 40%, 
-    rgba(255, 185, 160, 0.8) 78%);
-  color: white;
-  transform: rotateY(180deg);
-  padding: 20px;
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 30px 20px;
 }
 
-/* Front Card Content */
 .project-image {
   font-size: 4rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
-.title {
-  font-size: 1.3rem;
+.flip-card-front .title {
+  font-size: 1.4rem;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 15px 0;
+  margin: 15px 0;
   line-height: 1.4;
-  max-height: 4.2em;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
+  color: #d2691e;
 }
 
 .project-category {
@@ -262,81 +243,71 @@
   margin-top: auto;
 }
 
-/* Back Card Content */
+/* BACK SIDE */
+.flip-card-back {
+  background: linear-gradient(120deg,
+    rgba(255, 140, 66, 0.9) 30%, 
+    #d2691e 88%,
+    rgba(255, 248, 245, 0.3) 40%, 
+    rgba(255, 185, 160, 0.8) 78%);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 18px;
+  align-items: stretch;
+}
+
+.flip-card-back .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 5px 0 10px;
+  text-align: center;
+}
+
+/* Description */
 .description {
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 10px;
   text-align: left;
   flex: 1;
-  overflow-y: auto;
-  max-height: 200px;
-  padding-right: 8px;
   color: rgba(255, 255, 255, 0.95);
 }
 
-/* Scrollbar styling for description */
-.description::-webkit-scrollbar {
-  width: 4px;
-}
-
-.description::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-
-.description::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-}
-
-.description::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-/* Compact Skills List on Card Back */
+/* Skills List – TIGHT rows, well-aligned badges */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-  max-height: 70px;
-  overflow-y: auto;
-  margin-bottom: 8px;
-  padding: 4px;
+  justify-content: flex-start;
+  align-items: flex-start;   /* don't vertically center big row height */
+  column-gap: 6px;           /* horizontal spacing */
+  row-gap: 2px;              /* 🔻 small vertical spacing between rows */
+  margin: 2px 0 10px;
+  padding: 0;
 }
 
-/* Slim scrollbar */
-.skills-list::-webkit-scrollbar {
-  width: 4px;
-}
-
-.skills-list::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-}
-
-.skills-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-/* Compact badge styling */
+/* Compact skill badges */
 .skill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 0.7rem;
+  padding: 2px 8px;          /* small padding = tighter rows */
+  border-radius: 999px;
+  font-size: 0.74rem;
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.3);
   white-space: nowrap;
-  line-height: 1.2;
-  margin: 0;
+  line-height: 1;            /* 🔻 very tight line height */
+  margin: 0;                 /* no extra margin around badges */
 }
 
+/* Links at bottom */
 .project-links {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   justify-content: center;
   margin-top: auto;
 }
@@ -380,7 +351,7 @@
   }
   
   .flip-card {
-    height: 280px;
+    height: 320px;
   }
   
   .project-image {
@@ -393,7 +364,7 @@
   
   .project-links {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 }
 
@@ -407,11 +378,23 @@
   }
   
   .flip-card {
-    height: 260px;
+    height: 300px;
   }
   
   .flip-card-front,
   .flip-card-back {
-    padding: 15px;
+    padding: 16px;
   }
+}
+.skills-list {
+  column-gap: 6px;
+  row-gap: 2px;
+  align-items: flex-start;
+  margin: 2px 0 10px;
+}
+
+.skill-badge {
+  padding: 2px 8px;
+  line-height: 1;
+  margin: 0;
 }

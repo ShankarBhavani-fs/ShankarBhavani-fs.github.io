@@ -74,7 +74,7 @@ const Achievements: React.FC = () => {
   };
 
   return (
-    <section className="achievements-section" data-aos="fade-up">
+    <section id="achievements" className="achievements-section" data-aos="fade-up">
       <div className="container">
         <div className="section-header">
           <FaBriefcase className="section-icon" />

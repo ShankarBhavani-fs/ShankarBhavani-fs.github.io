@@ -2,25 +2,13 @@
 .experience-section {
   padding: 120px 40px 150px 40px;
   background: linear-gradient(135deg, 
-    rgba(255, 250, 248, 0.9) 0%,
-    rgba(255, 248, 245, 0.8) 50%,
-    rgba(255, 245, 240, 0.9) 100%
+    #fff5f0 0%,
+    #ffe8dc 50%,
+    #ffd4c0 100%
   );
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-}
-
-.experience-section::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 140, 66, 0.03) 0%, transparent 70%);
-  animation: floatReverse 25s ease-in-out infinite;
-  z-index: 1;
 }
 
 .experience-container {
@@ -29,10 +17,6 @@
   position: relative;
   z-index: 2;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* === Section Header === */
@@ -265,7 +249,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -280,7 +264,7 @@
 }
 
 .experience-modal {
-  background: white;
+  background: #fffbea;
   border-radius: 20px;
   width: 90%;
   max-width: 800px;
@@ -332,11 +316,13 @@
 }
 
 /* === Modal Header === */
-.modal-header {
+.experience-modal .modal-header {
   display: flex;
   gap: 20px;
   padding: 30px;
   border-bottom: 1px solid rgba(255, 184, 153, 0.2);
+  background: linear-gradient(135deg, #d5bbf3, #a778d0) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .modal-logo {
@@ -358,6 +344,9 @@
 
 .modal-company-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .modal-company {
@@ -373,6 +362,7 @@
   font-weight: 600;
   color: #ff8c42;
   margin-bottom: 12px;
+  line-height: 1.3;
 }
 
 .modal-meta {
@@ -397,7 +387,7 @@
 
 .modal-type.full-time {
   background: rgba(34, 197, 94, 0.1);
-  color: #16a34a;
+  color: #79e216;
   border: 1px solid rgba(34, 197, 94, 0.2);
 }
 
@@ -409,7 +399,7 @@
 
 .modal-type.part-time {
   background: rgba(245, 158, 11, 0.1);
-  color: #d97706;
+  color: #bb5786;
   border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
