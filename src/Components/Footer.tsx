@@ -7,13 +7,16 @@ import {
   FaHandshake, 
   FaEnvelope,
   FaPaperPlane,
-  FaTimes
+  FaTimes,
+  FaChartLine
 } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
+import AnalyticsModal from "./AnalyticsModal";
 import "./Footer.css";
 
 const Footer: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAnalyticsOpen, setIsAnalyticsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -121,8 +124,22 @@ const Footer: React.FC = () => {
           <p className="footer-text">
             © {new Date().getFullYear()} Bhavani Shankar. All rights reserved.
           </p>
+          <button 
+            className="analytics-btn" 
+            onClick={() => setIsAnalyticsOpen(true)}
+            aria-label="View Analytics"
+          >
+            <FaChartLine />
+            <span>Analytics</span>
+          </button>
         </div>
       </div>
+
+      {/* Analytics Modal */}
+      <AnalyticsModal 
+        isOpen={isAnalyticsOpen} 
+        onClose={() => setIsAnalyticsOpen(false)} 
+      />
 
       {/* Contact Modal */}
       {isModalOpen && (
