@@ -276,6 +276,54 @@ section:nth-child(even) {
   transform: translateY(0);
 }
 
+/* === Scroll to Top Button === */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 140, 66, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 140, 66, 0.3);
+  border-radius: 50%;
+  color: #ff8c42;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(255, 140, 66, 0.2);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: rgba(255, 140, 66, 0.25);
+  border-color: #ff8c42;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 140, 66, 0.3);
+}
+
+.scroll-to-top:active {
+  transform: translateY(-1px);
+}
+
+.scroll-to-top:focus {
+  outline: 2px solid #ff8c42;
+  outline-offset: 2px;
+}
+
 /* === Responsive Design === */
 @media (max-width: 768px) {
   main {
