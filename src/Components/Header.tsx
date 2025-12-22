@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { 
-  FaLinkedin, 
-  FaGithub, 
   FaCogs, 
   FaGraduationCap, 
   FaBriefcase, 
@@ -9,8 +7,6 @@ import {
   FaBars,
   FaTimes,
   FaEnvelope,
-  FaMedium,
-  FaHandshake,
   FaTrophy,
   FaDownload
 } from "react-icons/fa";
@@ -35,7 +31,8 @@ const Header: React.FC = () => {
     { id: 'education', label: 'Education', icon: FaGraduationCap, href: '#education' },
     { id: 'experience', label: 'Experience', icon: FaBriefcase, href: '#experience' },
     { id: 'projects', label: 'Projects', icon: FaProjectDiagram, href: '#projects' },
-    { id: 'achievements', label: 'Achievements', icon: FaTrophy, href: '#achievements' }
+    { id: 'achievements', label: 'Achievements', icon: FaTrophy, href: '#achievements' },
+    { id: 'footer', label: 'Contact', icon: FaEnvelope, href: '#footer' }
   ], []);
 
   useEffect(() => {
@@ -120,54 +117,8 @@ const Header: React.FC = () => {
           </ul>
         </div>
 
-        {/* Social Links & Contact */}
+        {/* Header Actions */}
         <div className="header-actions">
-          <div className="social-links">
-            <a
-              href="https://www.linkedin.com/in/shankar-bhavani"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link linkedin"
-              aria-label="LinkedIn Profile"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://github.com/ExperimenterX"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link github"
-              aria-label="GitHub Profile"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://medium.com/@your-medium-handle"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link medium"
-              aria-label="Medium Blog"
-            >
-              <FaMedium />
-            </a>
-            <a
-              href="https://uic.joinhandshake.com/profiles/shankar-bhavani"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link handshake"
-              aria-label="Handshake Profile"
-            >
-              <FaHandshake />
-            </a>
-            <a
-              href="mailto:shankar.bhavani.in@gmail.com"
-              className="social-link email"
-              aria-label="Send Email"
-            >
-              <FaEnvelope />
-            </a>
-          </div>
-          
           {/* Download Resume Button */}
           <a
             href={resumePDF}

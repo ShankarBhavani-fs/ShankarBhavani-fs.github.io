@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="footer-container">
+    <footer id="footer" className="footer-container">
       <div className="footer-content">
         <div className="footer-section">
           <h3 className="footer-title">Connect With Me</h3>

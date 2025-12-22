@@ -23,11 +23,11 @@
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding-left: 2px;
 }
 
 /* === Profile Section === */
@@ -193,63 +193,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-left: auto;
-  padding-left: 20px;
-}
-
-/* === Social Links === */
-.social-links {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-link:hover {
-  transform: translateY(-3px);
-  color: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.social-link.linkedin:hover {
-  background: #0077b5;
-  border-color: #0077b5;
-}
-
-.social-link.github:hover {
-  background: #333;
-  border-color: #333;
-}
-
-.social-link.email:hover {
-  background: #ea9a9a;
-  border-color: #ff4242;
-}
-
-.social-link.medium:hover {
-  background: #00ab6c;
-  border-color: #00ab6c;
-}
-
-.social-link.handshake:hover {
-  background: #d8e062;
-  border-color: #d9e252;
+  gap: 0;
 }
 
 /* === Resume Download Button === */
@@ -400,13 +344,12 @@
 }
 
 @media (max-width: 1024px) {
-  .nav-list {
-    gap: 12px;
+  .nav-container {
+    padding: 0 15px;
   }
   
-  .nav-link {
-    font-size: 0.85rem;
-    padding: 6px 10px;
+  .nav-list {
+    gap: 10px;
   }
   
   /* Hide text on tablets, show only icons */
@@ -425,10 +368,6 @@
     font-size: 1.1rem;
   }
   
-  .header-actions {
-    gap: 12px;
-  }
-  
   .brand-name {
     font-size: 1.6rem;
   }
@@ -436,19 +375,24 @@
   .brand-title {
     font-size: 0.85rem;
   }
-}
-
-@media (max-width: 768px) {
-  .nav-container {
-    padding: 0 10px;
-  }
   
-  .profile-section {
+  .resume-download-btn {
+    padding: 8px 12px;
     gap: 12px;
   }
   
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    gap: 6px;
+  }
+  
+  .profile-section {
+    gap: 10px;
+  }
+  
   .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .brand-title {
@@ -465,22 +409,9 @@
     justify-content: center;
   }
   
-  /* Hide social links on mobile */
-  .social-links {
-    display: none;
-  }
-  
-  /* Make resume button more compact on mobile */
   .resume-download-btn {
-    padding: 6px 12px;
+    padding: 8px 12px;
     font-size: 0.85rem;
-    gap: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .professional-header {
-    padding: 12px 0;
   }
   
   .professional-header.scrolled {
@@ -489,6 +420,21 @@
   
   .profile-section {
     gap: 10px;
+  }
+  
+    .profile-image-wrapper {
+      width: 45px;
+      height: 45px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0 10px;
+    }
+  
+  .profile-section {
+    gap: 8px;
   }
   
   .profile-image-wrapper {
@@ -502,32 +448,25 @@
     height: 40px;
   }
   
-  .nav-container {
-    padding: 0 10px;
-  }
-  
   .brand-name {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .brand-title {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
   
   .header-actions {
-    gap: 12px;
+    gap: 8px;
   }
   
-  /* Keep social links hidden on mobile */
-  .social-links {
-    display: none;
-  }
-  
-  /* Further compact resume button for small screens */
   .resume-download-btn {
-    padding: 5px 10px;
+    padding: 6px 10px;
     font-size: 0.8rem;
-    gap: 4px;
+  }
+  
+  .resume-download-btn span {
+    display: none;
   }
   
   .mobile-nav-list {
@@ -561,6 +500,7 @@
 .nav-item:nth-child(3) { animation-delay: 0.3s; }
 .nav-item:nth-child(4) { animation-delay: 0.4s; }
 .nav-item:nth-child(5) { animation-delay: 0.5s; }
+.nav-item:nth-child(6) { animation-delay: 0.6s; }
 
 /* === Accessibility === */
 @media (prefers-reduced-motion: reduce) {
@@ -574,7 +514,6 @@
 /* === Focus States === */
 .nav-link:focus,
 .mobile-nav-link:focus,
-.social-link:focus,
 .mobile-menu-toggle:focus {
   outline: 2px solid #ff8c42;
   outline-offset: 2px;
