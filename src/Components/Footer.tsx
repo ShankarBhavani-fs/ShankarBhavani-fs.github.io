@@ -63,6 +63,7 @@ const Footer: React.FC = () => {
       }, 2000);
     } catch (error) {
       setStatusMessage('Failed to send message. Please try again or email directly.');
+      console.error('EmailJS Error:', error);
     } finally {
       setIsSending(false);
     }
