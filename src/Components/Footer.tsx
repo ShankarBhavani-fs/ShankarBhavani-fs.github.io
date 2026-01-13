@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
               <FaGithub />
             </a>
             <a
-              href="https://medium.com/@your-medium-handle"
+              href="https://medium.com/@shankar-bhavani"
               target="_blank"
               rel="noopener noreferrer"
               className="footer-social-link medium"
