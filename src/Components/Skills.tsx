@@ -21,7 +21,6 @@ import {
   FaSearch,
   FaChartLine,
   FaCogs,
-  FaNetworkWired,
   FaNodeJs,
   FaFileCode,
   FaExchangeAlt,
@@ -42,7 +41,9 @@ import {
   SiPostgresql,
   SiMongodb,
   SiPostman,
-  SiGo
+  SiGo,
+  SiSupabase,
+  SiFirebase
 } from "react-icons/si";
 import "./Skills.css";
 
@@ -62,14 +63,6 @@ const Skills: React.FC = () => {
 
   const getIconColor = (skillName: string): string => {
     const colors: { [key: string]: string } = {
-      // AI & Machine Learning
-      'Generative AI': '#ff6b6b',
-      'Agentic AI': '#4ecdc4',
-      'RAG Systems': '#45b7d1',
-      'Machine Learning': '#96ceb4',
-      'AI Automation': '#ffeaa7',
-      'Neural Networks': '#dda0dd',
-      
       // Programming Languages
       'Python': '#3776ab',
       'Java': '#ed8b00',
@@ -78,6 +71,20 @@ const Skills: React.FC = () => {
       'Node.js': '#339933',
       'Go': '#00add8',
       'SQL': '#336791',
+      'Bash': '#4eaa25',
+      'Shell Scripting': '#89e051',
+      
+      // AI & Machine Learning
+      'Generative AI': '#ff6b6b',
+      'Agentic AI': '#4ecdc4',
+      'RAG Systems': '#45b7d1',
+      'Machine Learning': '#96ceb4',
+      'AI Automation': '#ffeaa7',
+      'Neural Networks': '#dda0dd',
+      'MCP Server': '#8b5cf6',
+      'Model Optimization': '#f59e0b',
+      'Prompt Engineering': '#ec4899',
+      'LLM Integration': '#06b6d4',
       
       // Web & API Development
       'React': '#61dafb',
@@ -99,6 +106,9 @@ const Skills: React.FC = () => {
       'MySQL': '#4479a1',
       'PostgreSQL': '#336791',
       'MongoDB': '#47a248',
+      'Supabase': '#3ecf8e',
+      'Firebase': '#ffca28',
+      'Firestore': '#ffa611',
       'phpMyAdmin': '#6c78af',
       'Git': '#f05032',
       'Jenkins': '#d33833',
@@ -127,29 +137,33 @@ const Skills: React.FC = () => {
 
   const skillsData: SkillCategory[] = [
     {
-      title: "AI & Machine Learning",
-      icon: FaRobot,
-      skills: [
-        { name: "Generative AI", icon: FaBrain },
-        { name: "Agentic AI", icon: FaRobot },
-        { name: "RAG Systems", icon: FaSearch },
-        { name: "Machine Learning", icon: FaChartLine },
-        { name: "AI Automation", icon: FaCogs },
-        { name: "Neural Networks", icon: FaNetworkWired }
-      ]
-    },
-    {
       title: "Programming Languages",
       icon: FaCode,
       skills: [
         { name: "Python", icon: FaPython },
+        { name: "Go", icon: SiGo },
         { name: "JavaScript", icon: FaJs },
         { name: "TypeScript", icon: SiTypescript },
         { name: "Java", icon: FaJava },
         { name: "Node.js", icon: FaNodeJs },
         { name: "SQL", icon: FaDatabase },
-        { name: "Go", icon: SiGo }
-      ]
+        { name: "Bash", icon: FaLinux },
+        { name: "Shell Scripting", icon: FaFileCode },
+      ],
+    },
+    {
+      title: "AI & Machine Learning",
+      icon: FaRobot,
+      skills: [
+        { name: "Gen AI", icon: FaBrain },
+        { name: "Agentic AI", icon: FaRobot },
+        { name: "RAG Systems", icon: FaSearch },
+        { name: "MCP", icon: FaCogs },
+        { name: "Model Optimization", icon: FaChartLine },
+        { name: "Prompt Engineering", icon: FaBrain },
+        { name: "LLM Integration", icon: FaRobot },
+        { name: "AI Automation", icon: FaCogs },
+      ],
     },
     {
       title: "Web & API Development",
@@ -161,8 +175,8 @@ const Skills: React.FC = () => {
         { name: "Swagger/OpenAPI", icon: FaFileCode },
         { name: "REST APIs", icon: FaExchangeAlt },
         { name: "HTML5", icon: FaHtml5 },
-        { name: "CSS3", icon: FaCss3Alt }
-      ]
+        { name: "CSS3", icon: FaCss3Alt },
+      ],
     },
     {
       title: "Cloud & DevOps",
@@ -173,7 +187,7 @@ const Skills: React.FC = () => {
         { name: "GCP", icon: FaGoogle },
         { name: "Docker", icon: FaDocker },
         { name: "Azure DevOps", icon: FaServer },
-      ]
+      ],
     },
     {
       title: "Database & Tools",
@@ -182,12 +196,14 @@ const Skills: React.FC = () => {
         { name: "MySQL", icon: SiMysql },
         { name: "PostgreSQL", icon: SiPostgresql },
         { name: "MongoDB", icon: SiMongodb },
+        { name: "Supabase", icon: SiSupabase },
+        { name: "Firebase", icon: SiFirebase },
         { name: "phpMyAdmin", icon: FaDatabase },
         { name: "SDK Development", icon: FaCode },
         { name: "Git", icon: FaGitAlt },
         { name: "Jenkins", icon: FaJenkins },
-        { name: "Postman", icon: SiPostman }
-      ]
+        { name: "Postman", icon: SiPostman },
+      ],
     },
     {
       title: "Automation & Platforms",
@@ -197,8 +213,8 @@ const Skills: React.FC = () => {
         { name: "Ubuntu/Snap", icon: FaUbuntu },
         { name: "Linux", icon: FaLinux },
         { name: "VS Code", icon: FaCode },
-        { name: "Agile/Scrum", icon: FaTasks }
-      ]
+        { name: "Agile/Scrum", icon: FaTasks },
+      ],
     },
     {
       title: "Leadership & Soft Skills",
@@ -209,9 +225,9 @@ const Skills: React.FC = () => {
         { name: "Team Collaboration", icon: FaHandshake },
         { name: "Problem Solving", icon: FaLightbulb },
         { name: "Communication", icon: FaComments },
-        { name: "Adaptability", icon: FaExchangeAlt }
-      ]
-    }
+        { name: "Adaptability", icon: FaExchangeAlt },
+      ],
+    },
   ];
 
   useEffect(() => {

@@ -79,7 +79,7 @@ const Experience: React.FC = () => {
           icon: FaCogs,
           title: "Automation Solutions",
           description: "Worked on industrial automation software development",
-          impact: "Gained expertise in manufacturing systems",
+          impact: "Gained expertise in manufacturing software systems",
         },
         {
           icon: FaCode,
@@ -227,6 +227,7 @@ const Experience: React.FC = () => {
   }, [closeModal]);
 
   return (
+    <>
     <section id="experience" className="experience-section" data-aos="fade-up">
       <div className="experience-container">
         <div className="section-header">
@@ -267,8 +268,10 @@ const Experience: React.FC = () => {
             );
           })}
         </div>
+      </div>
+    </section>
 
-        {selectedExperience && (
+      {selectedExperience && (
           <div
             className="experience-modal-overlay"
             onClick={closeModal}
@@ -342,8 +345,7 @@ const Experience: React.FC = () => {
             </div>
           </div>
         )}
-      </div>
-    </section>
+    </>
   );
 };
 

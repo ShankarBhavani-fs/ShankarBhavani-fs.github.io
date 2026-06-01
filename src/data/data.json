@@ -1,6 +1,22 @@
 {
   "certificates": [
     {
+      "course_title": "Model Context Protocol: Advanced Topics",
+      "certificate_url": "verify.skilljar.com/c/jws9drzq3f2o",
+      "certificate_no": "jws9drzq3f2o",
+      "date_completed": "May 6, 2026",
+      "length": "Anthropic Education",
+      "instructors": "Anthropic Education"
+    },
+    {
+      "course_title": "Introduction to Model Context Protocol",
+      "certificate_url": "verify.skilljar.com/c/bokwfnxoeobf",
+      "certificate_no": "bokwfnxoeobf",
+      "date_completed": "May 5, 2026",
+      "length": "Anthropic Education",
+      "instructors": "Anthropic Education"
+    },
+    {
       "course_title": "Working with Microservices in Go (Golang)",
       "certificate_url": "ude.my/UC-e0c49e00-7519-4751-b399-411b2ba069f3",
       "certificate_no": "UC-e0c49800-7519-4751-6399-411b2ba069f3",
@@ -299,6 +315,16 @@
   ],
   "achievements": [
     {
+      "id": "mscs-rag-project",
+      "title": "StructRAG - RAG Architecture Analysis",
+      "description": "Comprehensive analysis of RAG architecture leveraging Apple Clara's new architecture and memory tokens for embeddings. Project approved by committee and department. Publication pending.",
+      "category": "Research & Academic",
+      "date": "2026",
+      "provider": "UIC | Computer Science Department",
+      "type": "research",
+      "link": "#"
+    },
+    {
       "id": "journal-publication",
       "title": "Journal Publication - Accident Prediction using ML",
       "description": "Published research work in a peer-reviewed academic journal focusing on Accident prediction using Machine Learning techniques",
@@ -331,22 +357,6 @@
   ],
   "projects": [
     {
-      "id": "ai-chatbot",
-      "title": "AI-Powered Chatbot",
-      "emoji": "🤖",
-      "description": "Developed an AI-powered chatbot using natural language processing to assist users with inquiries and support.",
-      "technologies": ["Python", "TensorFlow", "NLTK","Google Collab"],
-      "link": "#"
-    },
-    {
-      "id": "ecommerce-platform",
-      "title": "Grocery Price Comparator",
-      "emoji": "🛒",
-      "description": "Created a web application that compares grocery prices across multiple stores to help users find the best deals.",
-      "technologies": ["React", "Python", "MongoDB","web-scraping"],
-      "link": "#"
-    },
-    {
         "id": "PersonaRAG",
         "title": "PersonaRAG",
         "emoji": "🧠",
@@ -361,6 +371,32 @@
         "description":"AI assistant designed to help students manage their academic and personal tasks by implementing with providers like Blackboard, piazza and Google Calendar.",
         "technologies":["Python", "AWS","RAG", "Supabase", "Next.js"],
         "link":"https://www.hisyncai.com/"
+    },
+    {
+      "id": "CalHubSync",
+      "title": "CalHubSync",
+      "emoji": "🤖",
+      "description": "Built an event-driven distributed service in Go using PostgreSQL and GCP to synchronize calendars across multiple providers, handling asynchronous workflows and high-volume event processing.",
+      "technologies": [
+        "Go",
+        "PostgreSQL",
+        "GCP",
+        "Event-Driven Architecture"
+      ],
+      "link": "#"
+    },
+    {
+      "id": "ecommerce-platform",
+      "title": "Grocery Price Comparator",
+      "emoji": "🛒",
+      "description": "Created a web application that compares grocery prices across multiple stores to help users find the best deals.",
+      "technologies": [
+        "React",
+        "Python",
+        "MongoDB",
+        "web-scraping"
+      ],
+      "link": "#"
     },
     {
         "id":"CoffeeHouse",

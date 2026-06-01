@@ -168,3 +168,22 @@
   font-weight: normal;
   opacity: 1;
 }
+
+/* === Replay Hint === */
+.replay-hint {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: rgba(255, 140, 66, 0.8);
+  font-style: italic;
+  animation: fadeInPulse 1s ease-in-out infinite;
+}
+
+@keyframes fadeInPulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}

@@ -10,8 +10,8 @@ import {
   FaTrophy,
   FaDownload
 } from "react-icons/fa";
-import profileImage from "../assets/bhav-hs-m.jpeg";
-import resumePDF from "../data/Bhavani_Shankar-2024-Grad.pdf";
+import profileImage from "../assets/newhs-bs.jpeg";
+import resumePDF from "../data/Bhavani-Shankar_2026_Grad-FS.pdf";
 import "./Header.css";
 
 interface NavItem {
@@ -25,6 +25,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('summary');
+  const [showImageModal, setShowImageModal] = useState(false);
 
   const navigationItems: NavItem[] = useMemo(() => [
     { id: 'skills', label: 'Skills', icon: FaCogs, href: '#skills' },
@@ -66,24 +67,35 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`professional-header ${scrolled ? 'scrolled' : ''}`}>
+    <>
+    <header className={`professional-header ${scrolled ? "scrolled" : ""}`}>
       <nav className="nav-container">
         {/* Profile Section */}
         <div className="profile-section">
-          <div className="profile-image-wrapper">
-            <img 
-              src={profileImage} 
-              alt="Bhavani Shankar" 
-              className="profile-image"
-            />
-          </div>
           <div 
-            className="brand-section"
-            onClick={() => handleNavClick('#summary')}
+            className="profile-image-wrapper"
+            onClick={() => setShowImageModal(true)}
             style={{ cursor: 'pointer' }}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleNavClick('#summary')}
+            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setShowImageModal(true)}
+            aria-label="View profile picture"
+          >
+            <img
+              src={profileImage}
+              alt="Bhavani Shankar, AI Software Engineer and MSCS student at UIC"
+              className="profile-image"
+            />
+          </div>
+          <div
+            className="brand-section"
+            onClick={() => handleNavClick("#summary")}
+            style={{ cursor: "pointer" }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) =>
+              (e.key === "Enter" || e.key === " ") && handleNavClick("#summary")
+            }
           >
             <div className="brand-name">
               <span className="first-name">Bhavani</span>
@@ -102,7 +114,7 @@ const Header: React.FC = () => {
                 <li key={item.id} className="nav-item">
                   <a
                     href={item.href}
-                    className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                    className={`nav-link ${activeSection === item.id ? "active" : ""}`}
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item.href);
@@ -129,7 +141,7 @@ const Header: React.FC = () => {
             <FaDownload />
             <span>Resume</span>
           </a>
-          
+
           {/* Mobile Menu Toggle */}
           <button
             className="mobile-menu-toggle"
@@ -141,7 +153,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`mobile-nav ${isMenuOpen ? 'open' : ''}`}>
+        <div className={`mobile-nav ${isMenuOpen ? "open" : ""}`}>
           <ul className="mobile-nav-list">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
@@ -149,7 +161,7 @@ const Header: React.FC = () => {
                 <li key={item.id} className="mobile-nav-item">
                   <a
                     href={item.href}
-                    className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+                    className={`mobile-nav-link ${activeSection === item.id ? "active" : ""}`}
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item.href);
@@ -165,6 +177,22 @@ const Header: React.FC = () => {
         </div>
       </nav>
     </header>
+
+    {/* Image Modal - Outside header for full screen overlay */}
+    {showImageModal && (
+      <div 
+        className="image-modal-overlay"
+        onClick={() => setShowImageModal(false)}
+      >
+        <img 
+          src={profileImage} 
+          alt="Bhavani Shankar" 
+          className="modal-profile-image"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
+    </>
   );
 };
 

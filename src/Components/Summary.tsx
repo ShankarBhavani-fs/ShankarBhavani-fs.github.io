@@ -2,20 +2,28 @@ import React, { useState, useEffect } from "react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import "./Summary.css"; // Ensure this CSS file exists
 
-const summaryText = ` Welcome to my portfolio! I am Bhavani Shankar, a passionate software developer with expertise in full-stack development, Responsible AI, cloud computing, and automation. This portfolio showcases my work, skills, and projects that highlight my commitment to innovation.`;
+const summaryText = ` Welcome to my portfolio! I am Bhavani Shankar, an MSCS student at the University of Illinois Chicago and former Senior Software Engineer at Bosch Global Software Technologies. I specialize in full-stack development, Responsible AI, cloud computing, automation, and building scalable software systems using React, Python, Golang, PostgreSQL, Docker, and cloud platforms. This portfolio showcases my experience, projects, and technical journey in software engineering and AI-driven application development. Explore my work and achievements, and feel free to connect with me! `;
 
 const Summary: React.FC = () => {
-  const [text, setText] = useState("Hover to start...");
+  const [text, setText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [showAnimation, setShowAnimation] = useState(false);
+  const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
 
+  // Auto-play typing animation on mount
   useEffect(() => {
-    // Trigger animation on component mount
-    const timer = setTimeout(() => {
+    const animTimer = setTimeout(() => {
       setShowAnimation(true);
-    }, 300); // Small delay for better visual effect
+    }, 300);
 
-    return () => clearTimeout(timer);
+    const typingTimer = setTimeout(() => {
+      setIsTyping(true);
+    }, 500); // Start typing shortly after component mounts
+
+    return () => {
+      clearTimeout(animTimer);
+      clearTimeout(typingTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -30,8 +38,10 @@ const Summary: React.FC = () => {
           index++;
         } else {
           clearInterval(interval);
+          setIsTyping(false);
+          setHasPlayedOnce(true);
         }
-      }, 30); // Faster typing speed
+      }, 5); // Faster typing speed
     }
 
     return () => {
@@ -39,21 +49,26 @@ const Summary: React.FC = () => {
     };
   }, [isTyping]);
 
+  const handleReplay = () => {
+    if (hasPlayedOnce && !isTyping) {
+      setIsTyping(true);
+    }
+  };
+
   return (
     <div id="summary" className="summary-container">
       <div className="summary-content">
         <div className="text-section">
           <div
             className="text-content"
-            onMouseEnter={() => setIsTyping(true)}
-            onMouseLeave={() => {
-              setIsTyping(false);
-              setText("Know about me...");
-            }}
+            onMouseEnter={handleReplay}
           >
-            <p className={`summary-text ${isTyping ? "typing" : "center-text"}`}>
+            <p className={`summary-text ${isTyping ? "typing" : ""}`}>
               {text}
             </p>
+            {hasPlayedOnce && !isTyping && (
+              <p className="replay-hint">Hover to replay ↻</p>
+            )}
           </div>
         </div>
         <div className={`animation-section ${showAnimation ? "slide-in" : ""}`}>

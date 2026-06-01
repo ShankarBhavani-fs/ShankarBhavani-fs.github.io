@@ -94,6 +94,11 @@
   color: #000;
 }
 
+.footer-social-link.leetcode:hover {
+  background: #FFA116;
+  border-color: #FFA116;
+}
+
 .footer-social-link.contact-btn:hover {
   background: #ff8c42;
   border-color: #ff8c42;

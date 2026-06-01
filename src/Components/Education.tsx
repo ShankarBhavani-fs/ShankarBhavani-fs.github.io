@@ -31,11 +31,11 @@ const Education: React.FC = () => {
       institution: "University of Illinois, Chicago",
       degree: "Master of Science",
       field: "Computer Science",
-      duration: "Aug 2024 - Jun 2026",
+      duration: "Aug 2024 - May 2026",
       location: "Chicago, IL",
-      gpa: "3.5/4.0",
+      gpa: "3.63/4.0",
       status: "current",
-      logo: FaUniversity,
+      logo: FaGraduationCap,
       achievements: [
         "Graduate Research Assistant",
         "AI software Track"
@@ -57,7 +57,7 @@ const Education: React.FC = () => {
       location: "Bangalore, India",
       gpa: "8/10.0",
       status: "completed",
-      logo: FaBookOpen,
+      logo: FaUniversity,
       achievements: [
         "Cultural event organizer",
         "Journal publication for Accident prediction using ML"
@@ -78,10 +78,10 @@ const Education: React.FC = () => {
       duration: "Jun 2014 - May 2016",
       location: "Karnataka, India",
       status: "completed",
-      logo: FaGraduationCap,
+      logo: FaBookOpen,
       achievements: [
-        "Science club member",
-        "Math Olympiad participant"
+        "Science club",
+        "Dakshana foundation scholar"
       ],
       coursework: [
         "Physics",
@@ -121,6 +121,7 @@ const Education: React.FC = () => {
   }, [closeModal]);
 
   return (
+    <>
     <section id="education" className="education-section" data-aos="fade-up">
       <div className="education-container">
         <div className="section-header">
@@ -161,8 +162,10 @@ const Education: React.FC = () => {
             );
           })}
         </div>
+      </div>
+    </section>
 
-        {selectedEducation && (
+      {selectedEducation && (
           <div
             className="education-modal-overlay"
             onClick={closeModal}
@@ -235,8 +238,7 @@ const Education: React.FC = () => {
             </div>
           </div>
         )}
-      </div>
-    </section>
+    </>
   );
 };
 

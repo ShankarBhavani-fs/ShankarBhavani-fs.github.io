@@ -7,6 +7,7 @@ import Experience from "./Components/Experience";
 import Projects from "./Components/Projects";
 import Achievements from "./Components/Achievements";
 import Footer from "./Components/Footer";
+import ChatBot from "./Components/ChatBot";
 import { useAnalytics } from "./hooks/useAnalytics";
 import { FaArrowUp } from "react-icons/fa";
 import AOS from "aos";
@@ -53,6 +54,9 @@ const App: React.FC = () => {
         <Achievements />
       </main>
       <Footer />
+      
+      {/* AI ChatBot */}
+      <ChatBot />
       
       {/* Scroll to Top Button */}
       <button

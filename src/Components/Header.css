@@ -22,7 +22,6 @@
 
 .nav-container {
   max-width: 1400px;
-  margin: 0 auto;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -36,7 +35,6 @@
   align-items: center;
   gap: 15px;
   margin-right: 0px;
-  padding-left: 0;
 }
 
 .profile-image-wrapper {
@@ -148,7 +146,6 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  margin-right: 4px;
 }
 
 .nav-link::before {
@@ -193,7 +190,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 15px;
 }
 
 /* === Resume Download Button === */
@@ -316,19 +313,18 @@
 }
 
 /* === Responsive Design === */
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   .nav-list {
-    gap: 15px;
+    gap: 25px;
   }
   
   .nav-link {
     font-size: 0.9rem;
     padding: 6px 12px;
-    gap: 6px;
   }
   
   .social-links {
-    gap: 8px;
+    gap: 12px;
   }
   
   .social-link {
@@ -336,63 +332,15 @@
     height: 36px;
     font-size: 1rem;
   }
-  
-  .resume-download-btn {
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .nav-container {
     padding: 0 15px;
   }
   
-  .nav-list {
-    gap: 10px;
-  }
-  
-  /* Hide text on tablets, show only icons */
-  .nav-text {
-    display: none;
-  }
-  
-  .nav-link {
-    padding: 10px;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-  }
-  
-  .nav-icon {
-    font-size: 1.1rem;
-  }
-  
   .brand-name {
-    font-size: 1.6rem;
-  }
-  
-  .brand-title {
-    font-size: 0.85rem;
-  }
-  
-  .resume-download-btn {
-    padding: 8px 12px;
-    gap: 12px;
-  }
-  
-  .nav-link {
-    font-size: 0.9rem;
-    padding: 8px 14px;
-    gap: 6px;
-  }
-  
-  .profile-section {
-    gap: 10px;
-  }
-  
-  .brand-name {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   
   .brand-title {
@@ -409,9 +357,17 @@
     justify-content: center;
   }
   
+  /* Make resume button more compact on mobile */
   .resume-download-btn {
-    padding: 8px 12px;
+    padding: 6px 12px;
     font-size: 0.85rem;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .professional-header {
+    padding: 12px 0;
   }
   
   .professional-header.scrolled {
@@ -420,21 +376,6 @@
   
   .profile-section {
     gap: 10px;
-  }
-  
-    .profile-image-wrapper {
-      width: 45px;
-      height: 45px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .nav-container {
-      padding: 0 10px;
-    }
-  
-  .profile-section {
-    gap: 8px;
   }
   
   .profile-image-wrapper {
@@ -448,25 +389,32 @@
     height: 40px;
   }
   
+  .nav-container {
+    padding: 0 10px;
+  }
+  
   .brand-name {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
   .brand-title {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
   
   .header-actions {
-    gap: 8px;
+    gap: 12px;
   }
   
-  .resume-download-btn {
-    padding: 6px 10px;
-    font-size: 0.8rem;
-  }
-  
-  .resume-download-btn span {
+  /* Keep social links hidden on mobile */
+  .social-links {
     display: none;
+  }
+  
+  /* Further compact resume button for small screens */
+  .resume-download-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    gap: 4px;
   }
   
   .mobile-nav-list {
@@ -500,7 +448,6 @@
 .nav-item:nth-child(3) { animation-delay: 0.3s; }
 .nav-item:nth-child(4) { animation-delay: 0.4s; }
 .nav-item:nth-child(5) { animation-delay: 0.5s; }
-.nav-item:nth-child(6) { animation-delay: 0.6s; }
 
 /* === Accessibility === */
 @media (prefers-reduced-motion: reduce) {
@@ -514,7 +461,62 @@
 /* === Focus States === */
 .nav-link:focus,
 .mobile-nav-link:focus,
+.social-link:focus,
 .mobile-menu-toggle:focus {
   outline: 2px solid #ff8c42;
   outline-offset: 2px;
+}
+
+/* === Image Modal === */
+.image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+  cursor: pointer;
+}
+
+.modal-profile-image {
+  max-width: 400px;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.3s ease;
+  cursor: default;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-profile-image {
+    max-width: 85vw;
+    max-height: 85vh;
+  }
 }

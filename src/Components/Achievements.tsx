@@ -74,6 +74,7 @@ const Achievements: React.FC = () => {
   };
 
   return (
+    <>
     <section id="achievements" className="achievements-section" data-aos="fade-up">
       <div className="container">
         <div className="section-header">
@@ -121,8 +122,11 @@ const Achievements: React.FC = () => {
                     <IconComponent />
                   </div>
                   <div className="achievement-info">
-                    <h4 className="achievement-title">{achievement.title}</h4>
+                    <h4 className="achievement-title">{achievement.title} - {achievement.date}</h4>
                     <p className="achievement-provider">{achievement.provider}</p>
+                    {achievement.description && (
+                      <p className="achievement-description">{achievement.description}</p>
+                    )}
                   </div>
                   {achievement.link && achievement.link !== "#" && (
                     <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="achievement-link">
@@ -134,9 +138,11 @@ const Achievements: React.FC = () => {
             })}
           </div>
         </div>
+      </div>
+    </section>
 
-        {/* Certificates Modal */}
-        {showCertificatesModal && (
+      {/* Certificates Modal */}
+      {showCertificatesModal && (
           <div className="modal-overlay" onClick={closeCertificatesModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <div className="modal-header">
@@ -171,8 +177,7 @@ const Achievements: React.FC = () => {
             </div>
           </div>
         )}
-      </div>
-    </section>
+    </>
   );
 };
 

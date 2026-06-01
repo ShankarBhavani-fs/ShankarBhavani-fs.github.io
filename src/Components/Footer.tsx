@@ -10,6 +10,7 @@ import {
   FaTimes,
   FaChartLine
 } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 import emailjs from '@emailjs/browser';
 import AnalyticsModal from "./AnalyticsModal";
 import "./Footer.css";
@@ -110,6 +111,15 @@ const Footer: React.FC = () => {
               aria-label="Handshake Profile"
             >
               <FaHandshake />
+            </a>
+            <a
+              href="https://leetcode.com/u/shankar-bhavani/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link leetcode"
+              aria-label="LeetCode Profile"
+            >
+              <SiLeetcode />
             </a>
             <button
               onClick={() => setIsModalOpen(true)}
