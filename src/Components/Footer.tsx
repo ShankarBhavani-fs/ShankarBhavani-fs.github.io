@@ -8,9 +8,12 @@ import {
   FaEnvelope,
   FaPaperPlane,
   FaTimes,
-  FaChartLine
+  FaChartLine,
+  FaUserCircle,
+  FaQrcode
 } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+import qrCodeImage from "../assets/bhavani-shankar.png";
 import emailjs from '@emailjs/browser';
 import AnalyticsModal from "./AnalyticsModal";
 import "./Footer.css";
@@ -41,18 +44,18 @@ const Footer: React.FC = () => {
     setStatusMessage('');
 
     try {
-      // Replace with your EmailJS credentials
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        'service_gbiuzwr',
+        'template_v3vg9r8',
         {
+          name: 'Bhavani Shankar',
+          time: new Date().toLocaleString(),
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
-          message: formData.message,
-          to_name: 'Bhavani Shankar'
+          message: formData.message
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        'pTp65dpRqTkpMTAN2'
       );
       
       setStatusMessage('Message sent successfully! I\'ll get back to you soon.');
@@ -120,6 +123,15 @@ const Footer: React.FC = () => {
               aria-label="LeetCode Profile"
             >
               <SiLeetcode />
+            </a>
+            <a
+              href="https://gravatar.com/iambhavanishankar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link gravatar"
+              aria-label="Gravatar Profile"
+            >
+              <FaUserCircle />
             </a>
             <button
               onClick={() => setIsModalOpen(true)}
@@ -190,6 +202,9 @@ const Footer: React.FC = () => {
                   required
                   className="form-input"
                 />
+                <p className="email-note">
+                  ⚠️ Please double-check your email address so I can get back to you!
+                </p>
               </div>
               
               <div className="form-group">
@@ -231,6 +246,24 @@ const Footer: React.FC = () => {
                 {isSending ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+
+            <div className="contact-divider">
+              <span>OR</span>
+            </div>
+
+            <div className="qr-section">
+              <FaQrcode className="qr-icon" />
+              <h3 className="qr-title">Scan to Connect</h3>
+              <p className="qr-subtitle">Quick access to all my profiles</p>
+              <img 
+                src={qrCodeImage} 
+                alt="QR Code - Bhavani Shankar Contact" 
+                className="qr-code-image"
+              />
+              <p className="qr-description">
+                Scan with your phone to save my contact and access all social profiles
+              </p>
+            </div>
           </div>
         </div>
       )}

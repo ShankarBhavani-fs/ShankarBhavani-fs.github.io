@@ -99,6 +99,11 @@
   border-color: #FFA116;
 }
 
+.footer-social-link.gravatar:hover {
+  background: #1E8CBE;
+  border-color: #1E8CBE;
+}
+
 .footer-social-link.contact-btn:hover {
   background: #ff8c42;
   border-color: #ff8c42;
@@ -193,10 +198,31 @@
   padding: 40px;
   max-width: 500px;
   width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 140, 66, 0.3);
   animation: slideUp 0.3s ease;
+}
+
+/* Custom Scrollbar for Contact Modal */
+.contact-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.contact-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.contact-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 140, 66, 0.5);
+  border-radius: 10px;
+}
+
+.contact-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 140, 66, 0.7);
 }
 
 @keyframes slideUp {
@@ -293,6 +319,18 @@
   min-height: 120px;
 }
 
+.email-note {
+  font-size: 0.8rem;
+  color: #ffd700;
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding: 8px 12px;
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 3px solid #ffd700;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
 .status-message {
   padding: 12px;
   border-radius: 8px;
@@ -352,8 +390,80 @@
   cursor: not-allowed;
 }
 
+/* === Contact Divider === */
+.contact-divider {
+  display: flex;
+  align-items: center;
+  margin: 30px 0 20px;
+  text-align: center;
+}
+
+.contact-divider::before,
+.contact-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-divider span {
+  padding: 0 15px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* === QR Code Section === */
+.qr-section {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.qr-icon {
+  font-size: 2rem;
+  color: #ff8c42;
+  margin-bottom: 10px;
+}
+
+.qr-title {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.qr-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.qr-code-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.qr-description {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
 /* === Responsive Design === */
 @media (max-width: 768px) {
+  .contact-modal-overlay {
+    padding: 10px;
+  }
+
   .footer-container {
     padding: 40px 15px 20px 15px;
   }
@@ -374,6 +484,7 @@
 
   .contact-modal {
     padding: 30px 20px;
+    max-height: 85vh;
   }
 
   .modal-title {
@@ -382,6 +493,10 @@
 }
 
 @media (max-width: 480px) {
+  .contact-modal-overlay {
+    padding: 5px;
+  }
+
   .footer-social-links {
     gap: 12px;
   }
@@ -394,6 +509,8 @@
 
   .contact-modal {
     padding: 25px 15px;
+    max-height: 90vh;
+    max-width: 95%;
   }
 
   .modal-title {
@@ -404,5 +521,10 @@
   .form-textarea {
     padding: 10px 12px;
     font-size: 0.9rem;
+  }
+
+  .qr-code-image {
+    width: 160px;
+    height: 160px;
   }
 }
